@@ -1,0 +1,4150 @@
+Préfixe: 10.132.12.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: Default (1)
+Description: Réseau pour les téléphones fixes
+IDENTIFIANT: 154
+Préfixe (plat): 10.132.12.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-15T00:00:00+00:00
+Dernière mise à jour: 2021-10-05T13:02:28.576248+00:00
+Profondeur: 0
+---
+Préfixe: 46.140.148.112/28
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 35.714285714285715%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: IP Publique Sunrise
+IDENTIFIANT: 256
+Préfixe (plat): 46.140.148.112/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-06-27T11:29:37.858203+00:00
+Dernière mise à jour: 2024-06-27T11:29:37.858224+00:00
+Profondeur: 0
+---
+Préfixe: 62.2.123.136/29
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 83.33333333333334%
+Champ: Millennium
+IDENTIFIANT: 240
+Préfixe (plat): 62.2.123.136/29
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-11-21T16:01:37.786853+00:00
+Dernière mise à jour: 2023-11-21T16:01:37.786877+00:00
+Profondeur: 0
+---
+Préfixe: 172.23.20.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Description: Réseaux interne de Skidata (jointe par une liaison VPN site à site)
+IDENTIFIANT: 121
+Préfixe (plat): 172.23.20.0/24
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-17T00:00:00+00:00
+Dernière mise à jour: 2021-02-17T13:07:39.992182+00:00
+Profondeur: 0
+---
+Préfixe: 194.209.129.128/29
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 100.0%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: Swisscom Internet
+IDENTIFIANT: 171
+Préfixe (plat): 194.209.129.128/29
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-12-06T00:00:00+00:00
+Dernière mise à jour: 2021-12-06T16:22:59.840472+00:00
+Profondeur: 0
+---
+Préfixe: 195.65.48.144/28
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 71.42857142857143%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: 2nd range Internet Millennium Swisscom
+IDENTIFIANT: 173
+Préfixe (plat): 195.65.48.144/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-12T00:00:00+00:00
+Dernière mise à jour: 2022-01-12T09:18:05.345596+00:00
+Profondeur: 0
+---
+Préfixe: 10.129.0.0/16
+Statut: Récipient
+Enfants: 17
+VRF: B_IT_SERVICE
+Utilisation: 5.487060546875%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: B_IT_SERVICE serveurs
+IDENTIFIANT: 176
+Préfixe (plat): 10.129.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-08-24T06:24:43.552532+00:00
+Profondeur: 0
+---
+Préfixe: 10.129.2.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 13.779527559055119%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_SERVER (258)
+Description: Réseau pour les serveurs
+IDENTIFIANT: 110
+Préfixe (plat): 10.129.2.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-01-02T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T12:03:00.177274+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_K8s_CLUSTER (260)
+Description: Réseau pour les VM K9s
+IDENTIFIANT: 74
+Préfixe (plat): 10.129.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-29T00:00:00+00:00
+Dernière mise à jour: 2025-01-14T06:58:44.409056+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.6.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_PRE_PROD (262)
+IDENTIFIANT: 108
+Préfixe (plat): 10.129.6.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-26T00:00:00+00:00
+Dernière mise à jour: 2020-11-26T09:10:04.851063+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.8.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_ADMIN_ACCESS (264)
+IDENTIFIANT: 107
+Préfixe (plat): 10.129.8.0/24
+Type de portée: dcim.site
+Plage d'adresses: True
+Marqué comme utilisé: False
+Créé: 2020-11-26T00:00:00+00:00
+Dernière mise à jour: 2020-11-26T09:21:39.193770+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.10.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_VCENTER_HA (266)
+Description: Réseau pour le service HA du vCenter
+IDENTIFIANT: 137
+Préfixe (plat): 10.129.10.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-04-08T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:38:55.350875+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.12.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_SBC_SRV (268)
+Description: Réseau pour les SBC interne
+IDENTIFIANT: 139
+Préfixe (plat): 10.129.12.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-04-13T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:39:31.082134+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.14.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_GW_PHONE (270)
+Description: Réseau pour les routeur SIP swisscom
+IDENTIFIANT: 140
+Préfixe (plat): 10.129.14.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-04-13T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:39:43.040500+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.16.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_SBC_HA_SRV (272)
+Description: Réseau pour les liens HA des SBC
+IDENTIFIANT: 144
+Préfixe (plat): 10.129.16.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-04-22T00:00:00+00:00
+Dernière mise à jour: 2021-04-22T15:24:56.192655+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.20.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 2.7559055118110236%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_iSCSI 1 (276)
+Description: Réseau pour le service iSCSI
+IDENTIFIANT: 14
+Préfixe (plat): 10.129.20.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:18:08.353157+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.22.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 2.7559055118110236%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_iSCSI 2 (278)
+Description: Réseau pour le service iSCSI
+IDENTIFIANT: 15
+Préfixe (plat): 10.129.22.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:18:39.516834+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.24.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_vMotion (280)
+Description: Réseau pour le service vMotion vCenter
+IDENTIFIANT: 16
+Préfixe (plat): 10.129.24.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:19:00.662803+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.26.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_NFS (282)
+Description: Réseau pour le service NFS
+IDENTIFIANT: 17
+Préfixe (plat): 10.129.26.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:19:45.914171+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.192.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_WIFI (448)
+IDENTIFIANT: 98
+Préfixe (plat): 10.129.192.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-10T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:20:26.684016+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_FLASHBLADE (506)
+Description: Réseau pour les services fourni par la FlashBlade
+IDENTIFIANT: 18
+Préfixe (plat): 10.129.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:20:14.126690+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.253.0/30
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_Interco Core - Nexus (509)
+Description: Réseau pour l'interconnexion entre les switch Core et Nexus
+IDENTIFIANT: 19
+Préfixe (plat): 10.129.253.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:20:34.878104+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.254.0/30
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_Interco Core - Distr (510)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 20
+Préfixe (plat): 10.129.254.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:20:57.606052+00:00
+Profondeur: 1
+---
+Préfixe: 10.129.255.0/30
+Statut: Actif
+Enfants: 0
+VRF: B_IT_SERVICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: B_Interco Core - Fw (511)
+Description: Réseau pour l'interconnexion entre les switch Core et des Firewall
+IDENTIFIANT: 21
+Préfixe (plat): 10.129.255.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:21:20.860671+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.0.0/16
+Statut: Récipient
+Enfants: 16
+VRF: Global
+Utilisation: 5.487060546875%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: A_MANAGEMENT
+IDENTIFIANT: 175
+Préfixe (plat): 10.128.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-01-21T12:44:29.531048+00:00
+Profondeur: 0
+---
+Préfixe: 10.128.2.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 8.267716535433072%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_NET_MGMT (2)
+Description: Réseau pour le management des équipements
+IDENTIFIANT: 4
+Préfixe (plat): 10.128.2.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T06:15:16.623138+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 5.511811023622047%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_ADMIN_SRV (4)
+Description: Réseau pour le management des serveurs
+IDENTIFIANT: 5
+Préfixe (plat): 10.128.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:57:39.275472+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.6.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_AP_MGT (6)
+Description: Réseau pour le management des AP
+IDENTIFIANT: 6
+Préfixe (plat): 10.128.6.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:13:32.905648+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.8.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_WLC_MGT (8)
+Description: Réseau pour le management des contrôleur Wifi
+IDENTIFIANT: 7
+Préfixe (plat): 10.128.8.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:14:04.564993+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.10.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_PnP (10)
+Description: Réseau pour le Plug and Play Cisco
+IDENTIFIANT: 8
+Préfixe (plat): 10.128.10.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:14:29.012621+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.20.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_NET_MGT_1 (20)
+Description: Réseau pour le management des switch sur distrib étage
+IDENTIFIANT: 92
+Préfixe (plat): 10.128.20.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-10-09T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:15:19.340363+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.22.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 1.1811023622047243%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_NET_MGT_2 (22)
+Description: Réseau pour le management des switch sur distrib AVL
+IDENTIFIANT: 93
+Préfixe (plat): 10.128.22.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-10-09T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:17:02.876721+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.24.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 6.299212598425196%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_NET_MGT_3 (24)
+Description: Réseau pour le management des switch sur distrib outdoor
+IDENTIFIANT: 94
+Préfixe (plat): 10.128.24.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-10-09T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:17:29.445636+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.30.0/23
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 54.11764705882353%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_AP_MGT_1 (30)
+Description: Réseau pour la management des AP sur distrib étage
+IDENTIFIANT: 89
+Préfixe (plat): 10.128.30.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-10-09T00:00:00+00:00
+Dernière mise à jour: 2021-02-15T09:57:46.673545+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.32.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_AP_MGT_2 (32)
+Description: Réseau pour la management des AP sur distrib AVL
+IDENTIFIANT: 90
+Préfixe (plat): 10.128.32.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-10-09T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:17:56.100451+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.34.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 5.905511811023622%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_AP_MGT_3 (34)
+Description: Réseau pour la management des AP sur distrib Outdoor
+IDENTIFIANT: 91
+Préfixe (plat): 10.128.34.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-10-09T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:18:15.238377+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_FLASHBLADE (250)
+Description: Réseau pour les services fourni par la FlashBlade
+IDENTIFIANT: 9
+Préfixe (plat): 10.128.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:14:57.328135+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.252.0/30
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: DNAC Cluster (252)
+Description: Réseau pour le cluster DNA
+IDENTIFIANT: 10
+Préfixe (plat): 10.128.252.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:15:28.925176+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.253.0/30
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_Interco Core - Nexus (253)
+Description: Réseau pour l'interconnexion entre les switch Core et Nexus
+IDENTIFIANT: 11
+Préfixe (plat): 10.128.253.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:17:14.853616+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.254.0/30
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_Interco Core - Distr (254)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 12
+Préfixe (plat): 10.128.254.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:16:38.291013+00:00
+Profondeur: 1
+---
+Préfixe: 10.128.255.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: A_Interco Core - Fw (255)
+Description: Réseau pour l'interconnexion entre les switch Core et des Firewall
+IDENTIFIANT: 13
+Préfixe (plat): 10.128.255.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-10-20T11:24:12.340591+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.0.0/16
+Statut: Actif
+Enfants: 18
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Cloud Services
+IDENTIFIANT: 197
+Préfixe (plat): 10.250.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-10T14:34:58.967750+00:00
+Dernière mise à jour: 2022-10-11T06:03:18.262926+00:00
+Profondeur: 0
+---
+Préfixe: 10.250.0.0/19
+Statut: Actif
+Enfants: 10
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure
+IDENTIFIANT: 198
+Préfixe (plat): 10.250.0.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:35:23.644544+00:00
+Dernière mise à jour: 2024-10-02T08:19:22.355853+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.0.0/22
+Statut: Actif
+Enfants: 4
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure Production
+IDENTIFIANT: 212
+Préfixe (plat): 10.250.0.0/22
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-12-05T14:20:53.869614+00:00
+Dernière mise à jour: 2024-10-02T11:49:09.717681+00:00
+Profondeur: 2
+---
+Préfixe: 10.250.0.0/24
+Statut: Actif
+Enfants: 2
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure Hub
+IDENTIFIANT: 258
+Préfixe (plat): 10.250.0.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-10-02T11:51:50.774072+00:00
+Dernière mise à jour: 2024-10-02T11:51:50.774090+00:00
+Profondeur: 3
+---
+Préfixe: 10.250.0.0/28
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure Hub gateway subnet
+IDENTIFIANT: 260
+Préfixe (plat): 10.250.0.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-10-04T08:19:30.080504+00:00
+Dernière mise à jour: 2024-10-04T08:19:30.080522+00:00
+Profondeur: 4
+---
+Préfixe: 10.250.0.16/28
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure Hub firewall subnet
+IDENTIFIANT: 261
+Préfixe (plat): 10.250.0.16/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-10-04T08:19:48.658260+00:00
+Dernière mise à jour: 2024-10-04T08:19:48.658276+00:00
+Profondeur: 4
+---
+Préfixe: 10.250.1.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure AKS Production
+IDENTIFIANT: 257
+Préfixe (plat): 10.250.1.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-10-02T08:12:51.343354+00:00
+Dernière mise à jour: 2024-10-02T11:50:00.646469+00:00
+Profondeur: 3
+---
+Préfixe: 10.250.4.0/22
+Statut: Actif
+Enfants: 1
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure Staging
+IDENTIFIANT: 213
+Préfixe (plat): 10.250.4.0/22
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-12-05T14:22:49.654505+00:00
+Dernière mise à jour: 2024-10-02T11:50:29.189083+00:00
+Profondeur: 2
+---
+Préfixe: 10.250.5.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure AKS Staging
+IDENTIFIANT: 272
+Préfixe (plat): 10.250.5.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2025-08-14T09:10:39.514082+00:00
+Dernière mise à jour: 2025-08-14T09:13:11.773302+00:00
+Profondeur: 3
+---
+Préfixe: 10.250.8.0/22
+Statut: Actif
+Enfants: 1
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure Integration
+IDENTIFIANT: 214
+Préfixe (plat): 10.250.8.0/22
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-12-05T14:24:40.576807+00:00
+Dernière mise à jour: 2024-10-02T11:50:38.366597+00:00
+Profondeur: 2
+---
+Préfixe: 10.250.9.0/24
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure AKS Integration
+IDENTIFIANT: 217
+Préfixe (plat): 10.250.9.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-12-05T14:28:38.875665+00:00
+Dernière mise à jour: 2024-10-02T11:50:51.188690+00:00
+Profondeur: 3
+---
+Préfixe: 10.250.12.0/22
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Azure
+Description: Azure Development
+IDENTIFIANT: 215
+Préfixe (plat): 10.250.12.0/22
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-12-05T14:25:54.460928+00:00
+Dernière mise à jour: 2024-10-02T11:49:32.883998+00:00
+Profondeur: 2
+---
+Préfixe: 10.250.32.0/19
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: Amazon
+IDENTIFIANT: 199
+Préfixe (plat): 10.250.32.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:36:00.791879+00:00
+Dernière mise à jour: 2022-10-11T05:38:06.900625+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.64.0/19
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+IDENTIFIANT: 200
+Préfixe (plat): 10.250.64.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:36:17.809188+00:00
+Dernière mise à jour: 2022-10-11T05:36:17.809206+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.96.0/19
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+IDENTIFIANT: 201
+Préfixe (plat): 10.250.96.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:36:34.448190+00:00
+Dernière mise à jour: 2022-10-11T05:36:34.448206+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.128.0/19
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+IDENTIFIANT: 202
+Préfixe (plat): 10.250.128.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:36:49.614846+00:00
+Dernière mise à jour: 2022-10-11T05:36:49.614866+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.160.0/19
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+IDENTIFIANT: 203
+Préfixe (plat): 10.250.160.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:37:03.199995+00:00
+Dernière mise à jour: 2022-10-11T05:37:03.200011+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.192.0/19
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+IDENTIFIANT: 204
+Préfixe (plat): 10.250.192.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:37:16.593718+00:00
+Dernière mise à jour: 2022-10-11T05:37:16.593733+00:00
+Profondeur: 1
+---
+Préfixe: 10.250.224.0/19
+Statut: Actif
+Enfants: 0
+VRF: Global
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+IDENTIFIANT: 205
+Préfixe (plat): 10.250.224.0/19
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-10-11T05:37:31.240003+00:00
+Dernière mise à jour: 2022-10-11T05:37:31.240020+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.0.0/16
+Statut: Récipient
+Enfants: 27
+VRF: C_AVL
+Utilisation: 10.174560546875%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: C_AVL
+IDENTIFIANT: 174
+Préfixe (plat): 10.130.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Étiquettes: AVL
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-01-21T12:41:56.727397+00:00
+Profondeur: 0
+---
+Préfixe: 10.130.0.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_AVB_AUDITORIUM (512)
+Description: Préfixe pour le protocole AVB de la zone Auditorium
+IDENTIFIANT: 192
+Préfixe (plat): 10.130.0.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-04-11T00:00:00+00:00
+Dernière mise à jour: 2022-04-11T08:49:39.101542+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.2.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 3.543307086614173%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_AVB (514)
+Description: Réseau pour le service AVB
+IDENTIFIANT: 22
+Préfixe (plat): 10.130.2.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-07-23T08:01:05.818572+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_AVB_CLUB (524)
+Description: Préfixe pour les équipements AVL fonctionnant avec le protocole AVB
+IDENTIFIANT: 218
+Préfixe (plat): 10.130.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-12-15T08:51:00.143362+00:00
+Dernière mise à jour: 2024-11-14T12:07:46.361904+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.10.0/23
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_LUMIERE (522)
+Description: Réseau pour le système de lumière
+IDENTIFIANT: 26
+Préfixe (plat): 10.130.10.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2024-10-29T10:27:56.090651+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.22.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_QSYS (534)
+Description: Réseau pour le système QSYS
+IDENTIFIANT: 32
+Préfixe (plat): 10.130.22.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:28:29.083919+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.24.0/23
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_SON (536)
+Description: Réseau pour le système de sonorisation
+IDENTIFIANT: 33
+Préfixe (plat): 10.130.24.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2022-06-08T13:13:06.070217+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.26.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_DANTE_AUDITORIUM (538)
+Description: Réseau pour le system son de l'auditorium
+IDENTIFIANT: 235
+Préfixe (plat): 10.130.26.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-11-10T09:18:18.568188+00:00
+Dernière mise à jour: 2023-11-10T09:18:18.568207+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.28.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_DANTE_RECEPTION (540)
+Description: Réseau pour le system son de l'auditorium
+IDENTIFIANT: 236
+Préfixe (plat): 10.130.28.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-11-10T09:19:40.180892+00:00
+Dernière mise à jour: 2023-11-10T09:19:40.180911+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.30.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_DANTE_CLUB (542)
+Description: Réseau pour le system son de l'auditorium
+IDENTIFIANT: 237
+Préfixe (plat): 10.130.30.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-11-10T09:20:42.071583+00:00
+Dernière mise à jour: 2023-11-10T09:20:42.071600+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.32.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_TECHNIQUE_AVL (544)
+Description: Réseau pour la gestion technique AVL
+IDENTIFIANT: 37
+Préfixe (plat): 10.130.32.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:30:30.064117+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.34.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 1.968503937007874%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_VIDEO (546)
+Description: Réseau pour le service de vidéo
+IDENTIFIANT: 38
+Préfixe (plat): 10.130.34.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-07-23T08:01:57.255644+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.36.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_LUMIERE_CK (548)
+Description: Réseau pour les appareils color kinetics
+IDENTIFIANT: 135
+Préfixe (plat): 10.130.36.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-10T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:40:57.686609+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.40.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_TRACKING (552)
+Description: Réseau pour le service de localisation
+IDENTIFIANT: 41
+Préfixe (plat): 10.130.40.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-07-23T08:03:03.249903+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.42.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_LUMIERE_TRACKING (554)
+Description: Réseau pour le service de localisation
+IDENTIFIANT: 159
+Préfixe (plat): 10.130.42.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-07-06T00:00:00+00:00
+Dernière mise à jour: 2021-07-06T15:43:30.428711+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.44.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_CINEMA (556)
+Description: Préfixe pour les équipements du cinéma
+IDENTIFIANT: 194
+Préfixe (plat): 10.130.44.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-05-06T00:00:00+00:00
+Dernière mise à jour: 2022-05-06T08:31:13.620296+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.48.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_GUESTSERVICES_AUDITO (560)
+Description: Scope pour les équipements AVL Guest service de l'audito
+IDENTIFIANT: 229
+Préfixe (plat): 10.130.48.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:30:41.326850+00:00
+Dernière mise à jour: 2023-04-06T08:13:44.205776+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.50.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_GUESTSERVICES_BALLROOM (562)
+Description: Scope pour les équipements AVL Guest service ballroom
+IDENTIFIANT: 230
+Préfixe (plat): 10.130.50.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:34:59.641454+00:00
+Dernière mise à jour: 2023-04-06T08:13:57.698637+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.52.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_GUESTSERVICES_CLUB (564)
+Description: Scope pour les équipements AVL Guest Services club
+IDENTIFIANT: 231
+Préfixe (plat): 10.130.52.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:36:20.932281+00:00
+Dernière mise à jour: 2023-04-06T08:14:09.318095+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.54.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_GUEST_INTERNET (566)
+Description: Réseau pour les appareils vip to internet
+IDENTIFIANT: 232
+Préfixe (plat): 10.130.54.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T14:48:59.300455+00:00
+Dernière mise à jour: 2023-04-06T14:48:59.300472+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.56.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_KVM (568)
+Description: Préfixe pour les KVM
+IDENTIFIANT: 241
+Préfixe (plat): 10.130.56.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-01-03T08:32:52.793473+00:00
+Dernière mise à jour: 2024-11-14T12:06:56.611473+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.192.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_WIFI (704)
+Description: Réseau pour le service Wifi
+IDENTIFIANT: 42
+Préfixe (plat): 10.130.192.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:32:53.363802+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.194.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_SRV_AVL (706)
+Description: Réseau pour les serveurs AVL
+IDENTIFIANT: 43
+Préfixe (plat): 10.130.194.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2021-03-08T16:43:44.727049+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.196.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_K8s_AVL (708)
+Description: Réseau pour les VM K8s AVL
+IDENTIFIANT: 129
+Préfixe (plat): 10.130.196.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-08T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:47:29.158886+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_FLASHBLADE (762)
+Description: Réseau pour les services fourni par la FlashBlade
+IDENTIFIANT: 44
+Préfixe (plat): 10.130.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:33:42.605376+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.253.0/30
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_Interco Core - Nexus (765)
+Description: Réseau pour l'interconnexion entre les switch Core et Nexus
+IDENTIFIANT: 45
+Préfixe (plat): 10.130.253.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:33:59.294713+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.254.0/30
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_Interco Core - Distr (766)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 46
+Préfixe (plat): 10.130.254.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:34:14.183273+00:00
+Profondeur: 1
+---
+Préfixe: 10.130.255.0/30
+Statut: Actif
+Enfants: 0
+VRF: C_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: C_Interco Core - Fw (767)
+Description: Réseau pour l'interconnexion entre les switch Core et des Firewall
+IDENTIFIANT: 47
+Préfixe (plat): 10.130.255.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:34:36.320749+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.0.0/16
+Statut: Récipient
+Enfants: 13
+VRF: D_GUEST
+Utilisation: 6.658935546875%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: D_GUEST
+IDENTIFIANT: 177
+Préfixe (plat): 10.131.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-01-21T12:45:41.958483+00:00
+Profondeur: 0
+---
+Préfixe: 10.131.10.0/24
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_COIFFEUR_TPE (778)
+Description: Réseau pour le TPE du coiffeur
+IDENTIFIANT: 165
+Préfixe (plat): 10.131.10.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-09-15T00:00:00+00:00
+Dernière mise à jour: 2021-09-15T12:28:47.551585+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.12.0/22
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.09784735812133072%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_GUEST_EVENT (780)
+Description: Préfixe pour le réseau guest événement
+IDENTIFIANT: 195
+Préfixe (plat): 10.131.12.0/22
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-05-30T00:00:00+00:00
+Dernière mise à jour: 2022-05-30T07:35:12.016375+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.16.0/22
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_GUEST_EVENT_2 (782)
+Description: D_GUEST_EVENT_2
+IDENTIFIANT: 266
+Préfixe (plat): 10.131.16.0/22
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2025-03-27T10:34:12.163273+00:00
+Dernière mise à jour: 2025-03-27T10:36:59.288193+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.20.0/24
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_LOC_NDCAPTIAL (784)
+Description: Réseau pour les locataires ND Capital
+IDENTIFIANT: 267
+Préfixe (plat): 10.131.20.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2025-03-27T12:09:00.444167+00:00
+Dernière mise à jour: 2025-03-27T12:13:06.463553+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.22.0/24
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+VLAN: D_LOC_IOLA (786)
+Description: Préfixe pour le réseau guest locataire IOLA
+IDENTIFIANT: 269
+Préfixe (plat): 10.131.22.0/24
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2025-06-18T08:04:07.069215+00:00
+Dernière mise à jour: 2025-06-18T08:04:07.069231+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.190.0/24
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_ESPACE_FITNESS (958)
+Description: Réseau pour le VLAN des équipements de l'espace fitness
+IDENTIFIANT: 157
+Préfixe (plat): 10.131.190.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-16T00:00:00+00:00
+Dernière mise à jour: 2021-09-16T09:40:03.462193+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.192.0/23
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_WIFI (960)
+Description: Réseau pour le service Wifi
+IDENTIFIANT: 49
+Préfixe (plat): 10.131.192.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:35:53.546804+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.200.0/24
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_GLOBALPROTECT_VPN_EXTERNAL (968)
+Description: Réseau pour les clients Global Protect VPN externe
+IDENTIFIANT: 120
+Préfixe (plat): 10.131.200.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Étiquettes: VPN
+Créé: 2021-02-17T00:00:00+00:00
+Dernière mise à jour: 2021-04-21T19:28:19.236820+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.202.0/24
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_GLOBALPROTECT_VPN_INTERNAL (970)
+Description: Réseau pour les clients Global protect VPN Interne
+IDENTIFIANT: 143
+Préfixe (plat): 10.131.202.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Étiquettes: VPN
+Créé: 2021-04-21T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:48:05.420019+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_FLASHBLADE (1018)
+Description: Réseau pour les services fourni par la FlashBlade
+IDENTIFIANT: 50
+Préfixe (plat): 10.131.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:36:24.210829+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.253.0/30
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_Interco Core - Nexus (1021)
+Description: Réseau pour l'interconnexion entre les switch Core et Nexus
+IDENTIFIANT: 51
+Préfixe (plat): 10.131.253.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:36:52.491270+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.254.0/30
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_Interco Core - Distr (1022)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 52
+Préfixe (plat): 10.131.254.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:37:06.211917+00:00
+Profondeur: 1
+---
+Préfixe: 10.131.255.0/30
+Statut: Actif
+Enfants: 0
+VRF: D_GUEST
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: D_Interco Core - Fw (1023)
+Description: Réseau pour l'interconnexion entre les switch Core et des Firewall
+IDENTIFIANT: 53
+Préfixe (plat): 10.131.255.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:37:19.684528+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.0.0/16
+Statut: Récipient
+Enfants: 15
+VRF: E_OFFICE
+Utilisation: 5.096435546875%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: E_OFFICE
+IDENTIFIANT: 178
+Préfixe (plat): 10.132.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-01-21T12:46:35.978114+00:00
+Profondeur: 0
+---
+Préfixe: 10.132.2.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_MILLENNIUM_TEAM (1026)
+Description: Réseau pour les utilisateurs filaire des équipes Millennium
+IDENTIFIANT: 54
+Préfixe (plat): 10.132.2.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2021-09-30T06:55:05.520669+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_POINTEUSE_RH (1028)
+Description: Réseau pour les pointeuses RH
+IDENTIFIANT: 138
+Préfixe (plat): 10.132.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-04-08T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:48:37.662544+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.8.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_SPIDER_TCPOS_SRV (1032)
+Description: Réseau pour les VM qui gère la solution Spider TCPOS
+IDENTIFIANT: 152
+Préfixe (plat): 10.132.8.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-14T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:49:01.774253+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.10.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_CAISSE_TCPOS (1034)
+Description: Réseau pour les caisses TCPos
+IDENTIFIANT: 153
+Préfixe (plat): 10.132.10.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-15T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:49:11.107658+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.14.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_VENDING_MACHINE (1038)
+Description: Réseau pour les vendings machines
+IDENTIFIANT: 155
+Préfixe (plat): 10.132.14.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-16T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:50:47.812388+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.16.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_STAMP_MACHINE (1040)
+Description: Réseau pour les machines d'affranchissements
+IDENTIFIANT: 156
+Préfixe (plat): 10.132.16.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-16T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:52:16.930014+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.18.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_IP_PHONE (1042)
+Description: Réseau pour les téléphone IP
+IDENTIFIANT: 158
+Préfixe (plat): 10.132.18.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-07-01T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T13:04:55.960944+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.20.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_IMPRIMANTE (1044)
+Description: Réseau pour les imprimantes
+IDENTIFIANT: 160
+Préfixe (plat): 10.132.20.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-07-13T00:00:00+00:00
+Dernière mise à jour: 2021-07-13T09:36:16.478306+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.22.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_SURFACE_HUB (1046)
+Description: Prefix pour les Surface Hub
+IDENTIFIANT: 163
+Préfixe (plat): 10.132.22.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-09-07T00:00:00+00:00
+Dernière mise à jour: 2021-09-07T15:03:53.289615+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.26.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_ENOMATIC (1050)
+Description: Préfixe pour la machine à vin
+IDENTIFIANT: 182
+Préfixe (plat): 10.132.26.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-02-15T00:00:00+00:00
+Dernière mise à jour: 2022-02-15T13:05:34.227519+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.192.0/23
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_WIFI (1216)
+Description: Réseau pour le service Wifi
+IDENTIFIANT: 55
+Préfixe (plat): 10.132.192.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:41:05.594371+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_FLASHBLADE (1274)
+Description: Réseau pour les services fourni par la FlashBlade
+IDENTIFIANT: 56
+Préfixe (plat): 10.132.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:40:47.726240+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.253.0/30
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_Interco Core - Nexus (1277)
+Description: Réseau pour l'interconnexion entre les switch Core et Nexus
+IDENTIFIANT: 57
+Préfixe (plat): 10.132.253.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:41:59.346486+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.254.0/30
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_Interco Core - Distr (1278)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 58
+Préfixe (plat): 10.132.254.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:42:18.648589+00:00
+Profondeur: 1
+---
+Préfixe: 10.132.255.0/30
+Statut: Actif
+Enfants: 0
+VRF: E_OFFICE
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: E_Interco Core - Fw (1279)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 59
+Préfixe (plat): 10.132.255.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:42:31.133509+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.0.0/16
+Statut: Récipient
+Enfants: 47
+VRF: F_BUILDING_1
+Utilisation: 19.1650390625%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: F_BUILDING_1
+IDENTIFIANT: 179
+Préfixe (plat): 10.133.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-01-21T12:48:18.696282+00:00
+Profondeur: 0
+---
+Préfixe: 10.133.2.0/23
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 64.90196078431373%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_DACS (1282)
+Description: Réseau pour les controleurs de porte Dormakaba
+IDENTIFIANT: 60
+Préfixe (plat): 10.133.2.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:53:33.650208+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.4.0/23
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 42.94117647058823%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_AUTOMATE_SIEMENS (1284)
+Description: Réseau pour les automates Siemens (contrôle bâtiment)
+IDENTIFIANT: 61
+Préfixe (plat): 10.133.4.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-11-11T10:39:34.052112+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.8.0/23
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 40.98039215686274%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CONTROLLER_SAGE (1288)
+Description: Réseau pour les contrôleurs Sage (Façade connectée)
+IDENTIFIANT: 62
+Préfixe (plat): 10.133.8.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2023-11-13T13:54:13.612448+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.10.0/23
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 14.705882352941178%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_INTERPHONE (1290)
+Description: Réseau pour le service d'interphonie
+IDENTIFIANT: 63
+Préfixe (plat): 10.133.10.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:47:07.148826+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.12.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.968503937007874%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_FCNET_SIEMENS (1292)
+Description: Préfixe pour le réseau FCnet à Siemens
+IDENTIFIANT: 150
+Préfixe (plat): 10.133.12.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-09T00:00:00+00:00
+Dernière mise à jour: 2021-06-09T11:13:05.256687+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.14.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 3.149606299212598%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_FITNESS_HAMMAM (1294)
+Description: Réseau pour le système de gestion du Wellness (sauna et hammam)
+IDENTIFIANT: 65
+Préfixe (plat): 10.133.14.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2021-02-02T17:36:26.682856+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.16.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 3.149606299212598%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_LAVAGE_KARCHER (1296)
+Description: Réseau pour les équipements de lavage Karcher
+IDENTIFIANT: 105
+Préfixe (plat): 10.133.16.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-23T11:01:37.533700+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.18.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.1811023622047243%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_INTRUSION (1298)
+Description: Préfix pour la central d'intrusion
+IDENTIFIANT: 119
+Préfixe (plat): 10.133.18.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-09T00:00:00+00:00
+Dernière mise à jour: 2021-02-09T10:13:01.316671+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.20.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_COFFRE_FORT (1300)
+Description: Réseau pour les équipements de la salle des coffres (Gunnebo)
+IDENTIFIANT: 104
+Préfixe (plat): 10.133.20.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-18T00:00:00+00:00
+Dernière mise à jour: 2021-03-02T07:52:59.750271+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.22.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 14.566929133858267%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_PARKING_SKIDATA (1302)
+Description: Réseau pour les équipements SKIDATA du parking
+IDENTIFIANT: 111
+Préfixe (plat): 10.133.22.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-01-12T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T12:03:18.570489+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.24.0/23
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 80.078125%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CAMERA_1 (1304)
+Description: Réseau pour le management des caméras
+IDENTIFIANT: 95
+Préfixe (plat): 10.133.24.0/23
+Type de portée: dcim.site
+Plage d'adresses: True
+Marqué comme utilisé: False
+Créé: 2020-10-21T00:00:00+00:00
+Dernière mise à jour: 2020-10-21T08:10:43.746213+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.26.0/23
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 8.431372549019608%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CAMERA_OUTDOOR (1306)
+Description: Réseau  pour les Caméras Outdoor
+IDENTIFIANT: 109
+Préfixe (plat): 10.133.26.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-12-10T00:00:00+00:00
+Dernière mise à jour: 2023-11-06T13:51:51.204957+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.28.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_PPSS (1308)
+Description: Réseau pour la signalétique de parking(Schick)
+IDENTIFIANT: 85
+Préfixe (plat): 10.133.28.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2021-07-08T07:04:03.145314+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.30.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 16.796875%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_UPS_PDU (1310)
+Description: Réseau pour le management des équipements électriques
+IDENTIFIANT: 87
+Préfixe (plat): 10.133.30.0/24
+Type de portée: dcim.site
+Plage d'adresses: True
+Marqué comme utilisé: False
+Créé: 2020-10-08T00:00:00+00:00
+Dernière mise à jour: 2020-10-08T13:19:33.151151+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.32.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.1811023622047243%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CLIM_DC (1312)
+Description: Réseau pour le management des équipements A/C
+IDENTIFIANT: 88
+Préfixe (plat): 10.133.32.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-10-09T00:00:00+00:00
+Dernière mise à jour: 2020-10-09T08:05:34.116866+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.34.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_TPE (1314)
+Description: Réseau pour les TPE
+IDENTIFIANT: 112
+Préfixe (plat): 10.133.34.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-01-12T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T12:03:51.016095+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.36.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 31.88976377952756%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_ASCENSEUR (1316)
+Description: Réseau pour les ascenseurs Schindler
+IDENTIFIANT: 114
+Préfixe (plat): 10.133.36.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-01-18T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T12:02:45.689912+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.38.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_PANNEAU_SOLAIRE (1318)
+Description: Réseau pour les panneaux solaires
+IDENTIFIANT: 115
+Préfixe (plat): 10.133.38.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-01-18T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T12:02:29.442592+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.40.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CRICAD_CHAUD (1320)
+Description: Réseau pour les automates de gestion de chaud Cricad
+IDENTIFIANT: 117
+Préfixe (plat): 10.133.40.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-01-27T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:53:47.779802+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.42.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_TRAITEMENT_VALEURS (1322)
+Description: Réseau pour les machines de traitement de valeurs
+IDENTIFIANT: 118
+Préfixe (plat): 10.133.42.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-08T00:00:00+00:00
+Dernière mise à jour: 2021-02-10T08:48:46.210978+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.44.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CUISINE (1324)
+Description: Réseau pour les équipements de cuisine
+IDENTIFIANT: 128
+Préfixe (plat): 10.133.44.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-04T00:00:00+00:00
+Dernière mise à jour: 2021-07-19T16:35:50.677050+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.46.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_COMPTEUR_ELECTRIQUE_INDIRECT (1326)
+Description: Réseau pour les compteurs électriques indirects
+IDENTIFIANT: 142
+Préfixe (plat): 10.133.46.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-04-19T00:00:00+00:00
+Dernière mise à jour: 2021-04-19T07:05:25.545205+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.48.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_FILTRATION_EAU_FONTAINE (1328)
+Description: Réseau pour le système de filtration d'eau de la fontaine
+IDENTIFIANT: 145
+Préfixe (plat): 10.133.48.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-05-03T00:00:00+00:00
+Dernière mise à jour: 2021-05-03T08:13:54.369703+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.50.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.1811023622047243%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_PC_SECURITE (1330)
+Description: Réseau pour les pc sécurité
+IDENTIFIANT: 148
+Préfixe (plat): 10.133.50.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-05-17T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:54:02.740269+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.52.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_FILTRATION_EAU_OUT (1332)
+Description: Préfixe pour les équipements de filtration de l'eau sur distrib Out
+IDENTIFIANT: 168
+Préfixe (plat): 10.133.52.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-11-04T00:00:00+00:00
+Dernière mise à jour: 2021-11-04T08:57:06.241728+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.54.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CHARGEUR_VOITURE (1334)
+Description: Préfixe pour les bornes de recharges de voitures
+IDENTIFIANT: 183
+Préfixe (plat): 10.133.54.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-03-02T00:00:00+00:00
+Dernière mise à jour: 2022-03-02T07:30:57.523940+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.56.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_INTERPHONE_OUT (1336)
+Description: Préfixe pour les interphones extérieur
+IDENTIFIANT: 193
+Préfixe (plat): 10.133.56.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-04-12T00:00:00+00:00
+Dernière mise à jour: 2022-04-12T06:34:30.901751+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.58.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_CUISINE_AVL (1338)
+Description: Préfixe pour les équipements de cuisine sur réseau AVL
+IDENTIFIANT: 196
+Préfixe (plat): 10.133.58.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-07-27T00:00:00+00:00
+Dernière mise à jour: 2022-07-27T06:48:42.014379+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.60.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_ECLAIRAGE_SECOURS (1340)
+Description: Préfixe pour les équipements affilié au système d'éclairage de secours
+IDENTIFIANT: 220
+Préfixe (plat): 10.133.60.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-02-28T09:44:27.830623+00:00
+Dernière mise à jour: 2024-11-14T12:08:52.900949+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.62.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.968503937007874%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_SONDE_TEMPERATURE_FRIGO (1342)
+Description: Préfixe pour les équipements de surveillance de la température des frigos
+IDENTIFIANT: 234
+Préfixe (plat): 10.133.62.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-10-09T13:28:54.223844+00:00
+Dernière mise à jour: 2023-10-09T13:28:54.223871+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.64.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 10.62992125984252%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_GATEWAY_LORAWAN (1344)
+IDENTIFIANT: 253
+Préfixe (plat): 10.133.64.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-11T07:16:37.314450+00:00
+Dernière mise à jour: 2024-04-11T07:16:37.314465+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.66.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: Préfixe pour les équipements de drone sur le toit
+IDENTIFIANT: 262
+Préfixe (plat): 10.133.66.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-10-30T09:19:39.857723+00:00
+Dernière mise à jour: 2024-11-14T08:15:08.091438+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.68.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.7874015748031495%
+Champ: Millennium
+Description: Préfixe pour les équipements de drone au E0
+IDENTIFIANT: 263
+Préfixe (plat): 10.133.68.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-10-30T09:20:25.318876+00:00
+Dernière mise à jour: 2024-11-14T08:15:34.964892+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.192.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_WIFI (1472)
+IDENTIFIANT: 97
+Préfixe (plat): 10.133.192.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-09T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:20:51.331478+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.234.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+VLAN: F_SAGE_SRV (1514)
+Description: Préfixe pour le service SageGlasse Maestro
+IDENTIFIANT: 270
+Préfixe (plat): 10.133.234.0/24
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2025-06-18T08:08:11.580243+00:00
+Dernière mise à jour: 2025-06-18T08:08:11.580270+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.236.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.968503937007874%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_BMSS_SRV (1516)
+IDENTIFIANT: 103
+Préfixe (plat): 10.133.236.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-11T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:21:04.212244+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.238.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: Préfixe pour le réseau du serveur SafeControl
+IDENTIFIANT: 243
+Préfixe (plat): 10.133.238.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-02-26T09:29:30.360673+00:00
+Dernière mise à jour: 2024-11-14T08:15:52.726175+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.240.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.1811023622047243%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_SKIDATA_SRV (1520)
+Description: Réseau pour le serveur SKIDATA
+IDENTIFIANT: 113
+Préfixe (plat): 10.133.240.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-01-12T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T12:04:05.390810+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.242.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 3.937007874015748%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_DACS_SRV (1522)
+Description: Réseau pour le serveur de la solution DACS
+IDENTIFIANT: 75
+Préfixe (plat): 10.133.242.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-03T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:54:10.473860+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.244.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 3.937007874015748%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_VMSM_SRV (1524)
+Description: Réseau pour les serveurs VMSM (Milestone)
+IDENTIFIANT: 86
+Préfixe (plat): 10.133.244.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-09-02T00:00:00+00:00
+Dernière mise à jour: 2021-03-24T15:39:15.569177+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.246.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_PPSS_SRV (1526)
+Description: Préfixe pour le serveur Schick (PPSS)
+IDENTIFIANT: 167
+Préfixe (plat): 10.133.246.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-10-29T00:00:00+00:00
+Dernière mise à jour: 2021-10-29T14:09:38.881227+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.248.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_INTERPHONE_SRV (1528)
+Description: Réseau pour les serveurs d'interphonie
+IDENTIFIANT: 106
+Préfixe (plat): 10.133.248.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-25T00:00:00+00:00
+Dernière mise à jour: 2020-11-25T07:32:29.256559+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 4.724409448818897%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_FLASHBLADE (1530)
+Description: Réseau pour les services fourni par la FlashBlade
+IDENTIFIANT: 66
+Préfixe (plat): 10.133.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:49:23.259097+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.252.0/30
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+VLAN: F_CORE_DISTR_AVL (1532)
+Description: Préfixe pour l'interconnexion entre le core et la ditrib AVL
+IDENTIFIANT: 271
+Préfixe (plat): 10.133.252.0/30
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2025-06-18T08:16:43.336437+00:00
+Dernière mise à jour: 2025-06-18T08:16:43.336452+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.253.0/30
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_Interco Core - Nexus (1533)
+Description: Réseau pour l'interconnexion entre les switch Core et Nexus
+IDENTIFIANT: 67
+Préfixe (plat): 10.133.253.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:49:44.036969+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.254.0/30
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_Interco Core - Distr (1534)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 68
+Préfixe (plat): 10.133.254.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:50:10.307917+00:00
+Profondeur: 1
+---
+Préfixe: 10.133.255.0/30
+Statut: Actif
+Enfants: 0
+VRF: F_BUILDING_1
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: F_Interco Core - Fw (1535)
+Description: Réseau pour l'interconnexion entre les switch Core et des Firewall
+IDENTIFIANT: 69
+Préfixe (plat): 10.133.255.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:50:25.762314+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.0.0/16
+Statut: Récipient
+Enfants: 36
+VRF: G_BUILDING_AVL
+Utilisation: 17.645263671875%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: G_BUILDING_AVL
+IDENTIFIANT: 180
+Préfixe (plat): 10.134.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-01-21T12:48:47.419278+00:00
+Profondeur: 0
+---
+Préfixe: 10.134.2.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_LISTENTECH (1538)
+Description: Réseau pour les services Listentech
+IDENTIFIANT: 99
+Préfixe (plat): 10.134.2.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-10T00:00:00+00:00
+Dernière mise à jour: 2021-01-20T15:12:05.678776+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_MACHINERIE (1540)
+Description: Réseau pour la machinerie (També)
+IDENTIFIANT: 169
+Préfixe (plat): 10.134.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-12-03T00:00:00+00:00
+Dernière mise à jour: 2021-12-03T07:54:55.955536+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.6.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 1.5686274509803921%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_CLICKSHARE_S1 (1542)
+Description: Réseau pour Clickshare S1
+IDENTIFIANT: 78
+Préfixe (plat): 10.134.6.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T14:59:32.718532+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.10.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.9803921568627451%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_CLICKSHARE_E6 (1546)
+Description: Réseau pour Clickshare E6
+IDENTIFIANT: 79
+Préfixe (plat): 10.134.10.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T14:58:53.810470+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.14.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.5882352941176471%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_TECHNIQUE_AVL (1550)
+Description: Réseau pour Technicien des salles de conférences
+IDENTIFIANT: 80
+Préfixe (plat): 10.134.14.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T15:01:29.377689+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.18.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 8.627450980392156%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_AMX_S1 (1554)
+Description: Réseau pour AMX S1
+IDENTIFIANT: 81
+Préfixe (plat): 10.134.18.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T15:02:34.678033+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.22.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 3.3333333333333335%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_AMX_E6 (1558)
+Description: Réseau pour AMX E6
+IDENTIFIANT: 82
+Préfixe (plat): 10.134.22.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T15:03:27.378799+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.26.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 2.156862745098039%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_AMX_AVL (1562)
+Description: Réseau pour AMX des salles d'evenementiel
+IDENTIFIANT: 83
+Préfixe (plat): 10.134.26.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T15:04:24.210953+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.30.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 11.568627450980392%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_QSYS (1566)
+Description: Réseau pour Q-SYS des salles de conférences
+IDENTIFIANT: 84
+Préfixe (plat): 10.134.30.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-07-23T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T15:20:26.115197+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.34.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 26.27450980392157%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_SIGNAGE (1570)
+Description: Réseau pour le service de signage
+IDENTIFIANT: 100
+Préfixe (plat): 10.134.34.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-10T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T15:14:02.255645+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.38.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_INTERCOM (1574)
+Description: Réseau pour les services d'intercom AVL
+IDENTIFIANT: 101
+Préfixe (plat): 10.134.38.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-10T00:00:00+00:00
+Dernière mise à jour: 2020-11-10T15:15:59.281647+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.42.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_LUMIERE_BUILDING (1578)
+Description: Réseau pour les services de Lumiere du batiment
+IDENTIFIANT: 102
+Préfixe (plat): 10.134.42.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-11-10T00:00:00+00:00
+Dernière mise à jour: 2020-12-09T07:51:56.907016+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.46.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_FONTAINE (1582)
+Description: Réseau pour l'AVL de la fontaine
+IDENTIFIANT: 134
+Préfixe (plat): 10.134.46.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-10T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:54:50.710887+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.48.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_UPS_PDU_AVL (1584)
+Description: Préfixe pour les UPS et PDU sur les switches AVL
+IDENTIFIANT: 147
+Préfixe (plat): 10.134.48.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-05-07T00:00:00+00:00
+Dernière mise à jour: 2021-05-07T08:19:08.297087+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.50.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 4.724409448818897%
+Champ: Millennium
+VLAN: G_AMX_SECU (1586)
+IDENTIFIANT: 149
+Préfixe (plat): 10.134.50.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-06-03T00:00:00+00:00
+Dernière mise à jour: 2021-06-03T14:14:58.971252+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.52.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_LISTENTECH_AUDITO (1588)
+Description: Réseau pour ListenTech auditorium
+IDENTIFIANT: 221
+Préfixe (plat): 10.134.52.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-05T13:27:02.269877+00:00
+Dernière mise à jour: 2023-04-06T07:39:03.989309+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.54.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_LISTENTECH_BALLROOM (1590)
+Description: Scope pour les équipement listentech ballroom
+IDENTIFIANT: 222
+Préfixe (plat): 10.134.54.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:11:43.484324+00:00
+Dernière mise à jour: 2023-04-06T07:11:43.484340+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.56.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_LISTENTECH_CLUB (1592)
+Description: Scope pour les équipements listentech club
+IDENTIFIANT: 223
+Préfixe (plat): 10.134.56.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:15:06.751627+00:00
+Dernière mise à jour: 2023-04-06T07:15:06.751643+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.58.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_BRASSERIE (1594)
+Description: Scope pour les équipement AVL de la brasserie
+IDENTIFIANT: 224
+Préfixe (plat): 10.134.58.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:16:57.436548+00:00
+Dernière mise à jour: 2023-04-06T07:16:57.436563+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.60.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_GALLERIE1 (1596)
+Description: Scope pour les équipements AVL de la galerie1
+IDENTIFIANT: 225
+Préfixe (plat): 10.134.60.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:18:52.130845+00:00
+Dernière mise à jour: 2023-04-06T07:18:52.130863+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.62.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_GALLERIE2 (1598)
+Description: Scope pour les équipement AVL de la gallerie2
+IDENTIFIANT: 226
+Préfixe (plat): 10.134.62.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:21:45.607604+00:00
+Dernière mise à jour: 2024-11-14T11:59:34.661753+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.66.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_SRV_AVL (1602)
+Description: Réseau pour les serveurs AVL VRF_G
+IDENTIFIANT: 130
+Préfixe (plat): 10.134.66.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-08T00:00:00+00:00
+Dernière mise à jour: 2025-01-14T06:57:34.264617+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.68.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_K8s_AVL (1604)
+Description: Réseau pour les VM K8s AVL VRF_G
+IDENTIFIANT: 131
+Préfixe (plat): 10.134.68.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-09T00:00:00+00:00
+Dernière mise à jour: 2025-01-14T06:57:23.943271+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.70.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 1.968503937007874%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_SOSH_SRV (1606)
+Description: Réseau pour le service SOSH AVL
+IDENTIFIANT: 146
+Préfixe (plat): 10.134.70.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-05-06T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:11.288153+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.72.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 1.574803149606299%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_CATDV_SRV (1608)
+Description: Préfixe utilisé pour le service CatDV
+IDENTIFIANT: 238
+Préfixe (plat): 10.134.72.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-11-15T12:42:09.994372+00:00
+Dernière mise à jour: 2023-11-15T12:42:09.994391+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.84.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_VERRIERE (1620)
+Description: Scope pour les équipements AVL de la Verriere
+IDENTIFIANT: 227
+Préfixe (plat): 10.134.84.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:23:48.945785+00:00
+Dernière mise à jour: 2023-04-06T07:23:48.945800+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.86.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_EPICERIE (1622)
+Description: Scope pour les équipements AVL pour l'epicerie
+IDENTIFIANT: 228
+Préfixe (plat): 10.134.86.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T07:28:20.386853+00:00
+Dernière mise à jour: 2023-04-06T07:28:20.386870+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.88.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_GUEST_INTERNET (1624)
+Description: Réseau  pour  les appareils vip to internet
+IDENTIFIANT: 233
+Préfixe (plat): 10.134.88.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-04-06T14:50:20.539602+00:00
+Dernière mise à jour: 2023-04-06T14:50:20.539619+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.90.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_GOLF (1626)
+Description: Réseau pour l'AVL de la fontaine
+IDENTIFIANT: 239
+Préfixe (plat): 10.134.90.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-11-20T11:57:30.877094+00:00
+Dernière mise à jour: 2023-11-20T11:59:01.076256+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.192.0/23
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_WIFI_PARTENAIRES (1728)
+Description: Réseaux pour le WIFI pour les partenaires externes
+IDENTIFIANT: 136
+Préfixe (plat): 10.134.192.0/23
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-16T00:00:00+00:00
+Dernière mise à jour: 2021-04-13T09:35:19.404534+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.248.0/28
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_Distrib_S1_AVL (1784)
+Description: Réseau pour l'interconnexion distrib - access multicast S1
+IDENTIFIANT: 132
+Préfixe (plat): 10.134.248.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-10T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:18.507331+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.249.0/28
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_Distrib_E6_AVL (1785)
+Description: Réseau pour l'interconnexion distrib - access multicast E6
+IDENTIFIANT: 133
+Préfixe (plat): 10.134.249.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-03-10T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:25.066803+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_FLASHBLADE (1786)
+Description: Réseau pour les services fourni par la FlashBlade
+IDENTIFIANT: 70
+Préfixe (plat): 10.134.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:52:21.097836+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.253.0/30
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_Interco Core - Nexus (1789)
+Description: Réseau pour l'interconnexion entre les switch Core et Nexus
+IDENTIFIANT: 71
+Préfixe (plat): 10.134.253.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:52:48.679846+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.254.0/30
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_Interco Core - Distr (1790)
+Description: Réseau pour l'interconnexion entre les switch Core et Distribution
+IDENTIFIANT: 72
+Préfixe (plat): 10.134.254.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:53:05.975841+00:00
+Profondeur: 1
+---
+Préfixe: 10.134.255.0/30
+Statut: Actif
+Enfants: 0
+VRF: G_BUILDING_AVL
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: G_Interco Core - Fw (1791)
+Description: Réseau pour l'interconnexion entre les switch Core et des Firewall
+IDENTIFIANT: 73
+Préfixe (plat): 10.134.255.0/30
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2020-06-11T00:00:00+00:00
+Dernière mise à jour: 2020-06-11T09:53:27.198300+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.0.0/16
+Statut: Récipient
+Enfants: 9
+VRF: O_DMZ
+Utilisation: 1.6845703125%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: O_DMZ
+IDENTIFIANT: 181
+Préfixe (plat): 10.142.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-01-21T00:00:00+00:00
+Dernière mise à jour: 2022-01-21T12:49:30.812856+00:00
+Profondeur: 0
+---
+Préfixe: 10.142.2.0/24
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 0.7874015748031495%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_VMSM_SRV_DMZ (3586)
+Description: Réseau pour les serveurs VMSM en DMZ
+IDENTIFIANT: 127
+Préfixe (plat): 10.142.2.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Étiquettes: VMSM_App
+Créé: 2021-02-26T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:31.517013+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 1.968503937007874%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_SBC_TEAMS (3588)
+Description: Réseau pour le trunk SIP SBC - MS Teams
+IDENTIFIANT: 141
+Préfixe (plat): 10.142.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-04-13T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:38.571569+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.6.0/24
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 2.3622047244094486%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_FRSH_SRV_DMZ (3590)
+Description: Prefix pour les serveurs fresh
+IDENTIFIANT: 219
+Préfixe (plat): 10.142.6.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2023-01-13T15:30:33.112650+00:00
+Dernière mise à jour: 2023-01-13T15:33:40.326593+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.10.0/24
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: VLAN pour le service Azure VNG (VPN avec Azure)
+IDENTIFIANT: 170
+Préfixe (plat): 10.142.10.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-12-06T00:00:00+00:00
+Dernière mise à jour: 2021-12-06T14:34:23.496839+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.251.0/28
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_Interco Core - Distrib Outdoor (3835)
+Description: Réseau pour l'interconnexion Core - Distrib Outdoor
+IDENTIFIANT: 126
+Préfixe (plat): 10.142.251.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-26T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:45.893433+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.252.0/28
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_Interco Core - Distrib AVL (3836)
+Description: Réseau pour l'interconnexion Core - Distrib AVL
+IDENTIFIANT: 125
+Préfixe (plat): 10.142.252.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-26T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:52.805373+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.253.0/28
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_Interco Core - Distrib Etages (3837)
+Description: Réseau pour l'interconnexion Core - Distrib Etages
+IDENTIFIANT: 124
+Préfixe (plat): 10.142.253.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-26T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:55:59.498744+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.254.0/28
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_Interco Core - Nexus (3838)
+Description: Réseau pour l'interconnexion Core - Nexus
+IDENTIFIANT: 123
+Préfixe (plat): 10.142.254.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-26T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:56:06.376948+00:00
+Profondeur: 1
+---
+Préfixe: 10.142.255.0/28
+Statut: Actif
+Enfants: 0
+VRF: O_DMZ
+Utilisation: 0.0%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: O_Interco Core - FW (3839)
+Description: Réseau pour l'interconnexion Core - FW
+IDENTIFIANT: 122
+Préfixe (plat): 10.142.255.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2021-02-26T00:00:00+00:00
+Dernière mise à jour: 2021-07-01T09:56:12.982018+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.0.0/16
+Statut: Récipient
+Enfants: 8
+VRF: H_RADIO_TV_AVL
+Utilisation: 3.125%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: Default (1)
+Description: H_RADIO_TV_AVL
+IDENTIFIANT: 190
+Préfixe (plat): 10.135.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-03-11T00:00:00+00:00
+Dernière mise à jour: 2022-03-11T11:54:54.995764+00:00
+Profondeur: 0
+---
+Préfixe: 10.135.2.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_SON (1802)
+Description: Préfixe pour les éléments son de la radio
+IDENTIFIANT: 184
+Préfixe (plat): 10.135.2.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-03-10T00:00:00+00:00
+Dernière mise à jour: 2022-03-10T15:42:37.834394+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_VIDEO (1804)
+IDENTIFIANT: 185
+Préfixe (plat): 10.135.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-03-10T00:00:00+00:00
+Dernière mise à jour: 2022-03-10T16:37:49.703932+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.6.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_OFFICE (1806)
+IDENTIFIANT: 186
+Préfixe (plat): 10.135.6.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-03-11T00:00:00+00:00
+Dernière mise à jour: 2022-03-11T09:59:09.211182+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.8.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_SIGNAGE (1808)
+Description: VLAN  pour les éléments signage de la radio / TV
+IDENTIFIANT: 187
+Préfixe (plat): 10.135.8.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-03-11T00:00:00+00:00
+Dernière mise à jour: 2022-03-11T10:06:26.494049+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.10.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_LUMIERE (1810)
+Description: VLAN  pour les éléments lumière de la radio / TV
+IDENTIFIANT: 188
+Préfixe (plat): 10.135.10.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-03-11T00:00:00+00:00
+Dernière mise à jour: 2022-03-11T10:06:56.266780+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.12.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_SRV_MGMT (1812)
+Description: Préfixe pour les iLO des serveurs MMG
+IDENTIFIANT: 191
+Préfixe (plat): 10.135.12.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2022-04-07T00:00:00+00:00
+Dernière mise à jour: 2022-04-07T11:01:02.940400+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.14.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_KVM (1814)
+IDENTIFIANT: 242
+Préfixe (plat): 10.135.14.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-01-03T08:34:50.949997+00:00
+Dernière mise à jour: 2024-01-03T08:34:50.950013+00:00
+Profondeur: 1
+---
+Préfixe: 10.135.16.0/24
+Statut: Actif
+Enfants: 0
+VRF: H_RADIO_TV_AVL
+Utilisation: 2.3622047244094486%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: H_WINMEDIA_SRV (1816)
+Description: Préfixe pour les serveurs virtuelles Winmedia
+IDENTIFIANT: 244
+Préfixe (plat): 10.135.16.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-03-26T14:50:48.173664+00:00
+Dernière mise à jour: 2024-03-26T14:50:48.173684+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.0.0/16
+Statut: Récipient
+Enfants: 11
+VRF: I_MJF
+Utilisation: 2.4658203125%
+Entité: Millennium Center SA
+Champ: Millennium
+Description: I_MJF
+IDENTIFIANT: 265
+Préfixe (plat): 10.136.0.0/16
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-11-14T08:20:51.620338+00:00
+Dernière mise à jour: 2024-11-14T08:21:40.266335+00:00
+Profondeur: 0
+---
+Préfixe: 10.136.2.0/24
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_OFFICE (2058)
+Description: Préfixe pour les équipements MJF / MMV
+IDENTIFIANT: 250
+Préfixe (plat): 10.136.2.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T09:11:42.309137+00:00
+Dernière mise à jour: 2024-11-12T13:04:27.520602+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.4.0/24
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 6.299212598425196%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_MAM_SRV (2060)
+Description: VLAN pour les serveurs de la solution MAM - MJF
+IDENTIFIANT: 251
+Préfixe (plat): 10.136.4.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T09:13:37.394592+00:00
+Dernière mise à jour: 2024-11-12T13:06:27.898810+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.6.0/24
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_MJF_RTS (2062)
+Description: Réseau pour la connexion des équipements RTS au MJF
+IDENTIFIANT: 254
+Préfixe (plat): 10.136.6.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-06-07T11:24:29.247229+00:00
+Dernière mise à jour: 2024-06-07T11:24:29.247255+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.8.0/24
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 3.543307086614173%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_MAM_S3 (2064)
+Description: Réseau pour le service S3
+IDENTIFIANT: 255
+Préfixe (plat): 10.136.8.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-06-19T11:18:32.949928+00:00
+Dernière mise à jour: 2024-11-12T13:06:51.366049+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.10.0/24
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 0.39370078740157477%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_MJF_STREAM (2066)
+Description: Préfixe pour les équipements de steaming MJF
+IDENTIFIANT: 264
+Préfixe (plat): 10.136.10.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-11-12T13:55:30.040909+00:00
+Dernière mise à jour: 2024-11-14T08:16:25.861613+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.250.0/24
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 1.1811023622047243%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_FLASHBLADE (2306)
+Description: Préfixe pour le service FlashBlade sur la VRF I
+IDENTIFIANT: 252
+Préfixe (plat): 10.136.250.0/24
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T09:16:35.069908+00:00
+Dernière mise à jour: 2024-11-12T13:08:18.262499+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.251.0/28
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 14.285714285714285%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_CORE_DISTR_OUTDOOR (2308)
+Description: Préfixe d'interco pour la connexion avec la distribution Outdoor
+IDENTIFIANT: 249
+Préfixe (plat): 10.136.251.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T09:06:48.567574+00:00
+Dernière mise à jour: 2024-11-12T13:08:43.793108+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.252.0/28
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 14.285714285714285%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_CORE_DISTR_AVL (2309)
+Description: Préfixe d'interco pour la connexion avec la distribution AVL
+IDENTIFIANT: 248
+Préfixe (plat): 10.136.252.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T07:52:03.290543+00:00
+Dernière mise à jour: 2024-11-14T08:17:12.043080+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.253.0/28
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 14.285714285714285%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_CORE_DISTR_ETAGES (2310)
+Description: Préfixe d'interco pour la connexion avec la distribution d'étages
+IDENTIFIANT: 247
+Préfixe (plat): 10.136.253.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T07:41:51.727287+00:00
+Dernière mise à jour: 2024-11-14T08:17:39.810070+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.254.0/28
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 21.428571428571427%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_CORE_NEXUS (2311)
+Description: Préfixe d'interco pour la connexion avec les Nexus
+IDENTIFIANT: 246
+Préfixe (plat): 10.136.254.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T07:39:42.144572+00:00
+Dernière mise à jour: 2024-11-14T08:18:16.703123+00:00
+Profondeur: 1
+---
+Préfixe: 10.136.255.0/28
+Statut: Actif
+Enfants: 0
+VRF: I_MJF
+Utilisation: 14.285714285714285%
+Entité: Millennium Center SA
+Champ: Millennium
+VLAN: I_CORE_FW (2312)
+Description: Préfixe d'interco pour la connexion avec le firewall
+IDENTIFIANT: 245
+Préfixe (plat): 10.136.255.0/28
+Type de portée: dcim.site
+Plage d'adresses: False
+Marqué comme utilisé: False
+Créé: 2024-04-09T07:36:17.944019+00:00
+Dernière mise à jour: 2024-11-14T08:18:36.833608+00:00
+Profondeur: 1
+---

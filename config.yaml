@@ -1,0 +1,29 @@
+# Configuration du système RAG
+
+# Chemins des répertoires
+paths:
+  data_dir: "./data"              # Dossier contenant les documents à indexer
+  vectorstore_dir: "./vectorstore" # Dossier pour le vector store
+
+# Paramètres de découpage des documents
+chunking:
+  chunk_size: 1000                # Taille des chunks en caractères
+  chunk_overlap: 200              # Chevauchement entre chunks
+
+# Paramètres de recherche
+search:
+  top_k: 5                        # Nombre de chunks à récupérer
+
+# Modèles
+models:
+  embedding_model: "mxbai-embed-large"  # Modèle d'embedding Ollama
+  generation_model: "llama3.2"          # Modèle de génération Ollama
+  temperature: 0.7                      # Température pour la génération
+  max_tokens: 1024                       # Nombre maximum de tokens
+
+# Configuration de l'interface web
+web:
+  host: "0.0.0.0"
+  port: 5000
+  debug: true
+

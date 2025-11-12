@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Assistant - Chat</title>
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --bg-elev: #0f1620;
+            --panel: #141b26;
+            --text: #e6e9ef;
+            --muted: #9aa4b2;
+            --accent: #2f5085;
+            --accent-strong: #546785;
+            --error-text: #ffb4c0;
+            --ring: rgba(110,168,254,0.35);
+            --shadow: 0 10px 30px rgba(0,0,0,0.45);
+            --radius: 14px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .chat-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg-elev);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chat-header h1 {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        .header-btn {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .header-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            background: var(--bg);
+        }
+        .message {
+            margin-bottom: 24px;
+            display: flex;
+            gap: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .message.user .message-avatar {
+            background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+        }
+        .message.assistant .message-avatar {
+            background: rgba(130,177,255,0.2);
+        }
+        .message-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .message-author {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .message-time {
+            font-size: 11px;
+            color: var(--muted);
+        }
+        .message-text {
+            line-height: 1.6;
+            color: var(--text);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .message-sources {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .message-sources-title {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .message-sources-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .source-tag {
+            padding: 4px 8px;
+            background: rgba(130,177,255,0.1);
+            border: 1px solid rgba(130,177,255,0.2);
+            border-radius: 4px;
+            font-size: 11px;
+            color: rgba(130,177,255,0.9);
+        }
+        .input-container {
+            padding: 20px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg-elev);
+        }
+        .input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: #0c121a;
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            font-size: 15px;
+            resize: none;
+            min-height: 44px;
+            max-height: 200px;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .chat-input::placeholder {
+            color: #6b7685;
+        }
+        .chat-input:focus {
+            outline: none;
+            border-color: rgba(130,177,255,0.45);
+            box-shadow: 0 0 0 4px var(--ring);
+        }
+        .send-button {
+            padding: 12px 24px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+            color: #0b1017;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.15s ease, filter 0.15s ease;
+            box-shadow: 0 6px 16px rgba(130,177,255,0.25);
+        }
+        .send-button:hover:not(:disabled) {
+            transform: translateY(-1px);
+            filter: brightness(1.03);
+        }
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .loading-indicator {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--muted);
+            text-align: center;
+            padding: 40px;
+        }
+        .empty-state h2 {
+            font-size: 1.5em;
+            margin-bottom: 12px;
+        }
+        .empty-state p {
+            font-size: 14px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>💬 RAG Assistant</h1>
+            <div class="chat-header-actions">
+                <a href="/api/documents" class="header-btn">📚 Documents</a>
+                <a href="/api/status" class="header-btn">📊 Status</a>
+            </div>
+        </div>
+        
+        <div class="messages-container" id="messagesContainer">
+            <div class="empty-state">
+                <h2>👋 Bonjour !</h2>
+                <p>Posez votre question sur la documentation technique</p>
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea 
+                    id="chatInput" 
+                    class="chat-input" 
+                    placeholder="Posez votre question..."
+                    rows="1"
+                    onkeydown="handleInputKeydown(event)"
+                ></textarea>
+                <button class="send-button" id="sendButton" onclick="sendMessage()">
+                    Envoyer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Envoyer un message
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Afficher le message de l'utilisateur
+            addUserMessage(message);
+            input.value = '';
+            adjustTextareaHeight(input);
+            
+            // Désactiver le bouton d'envoi
+            const sendButton = document.getElementById('sendButton');
+            sendButton.disabled = true;
+            sendButton.innerHTML = '<span class="loading-indicator"></span>';
+            
+            // Envoyer la requête
+            fetch('/api/query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    addErrorMessage(data.error);
+                } else {
+                    addAssistantMessage(data.answer, data.sources || []);
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                addErrorMessage('Erreur lors de l\'envoi du message');
+            })
+            .finally(() => {
+                sendButton.disabled = false;
+                sendButton.textContent = 'Envoyer';
+            });
+        }
+        
+        // Ajouter un message utilisateur
+        function addUserMessage(text) {
+            const container = document.getElementById('messagesContainer');
+            if (container.querySelector('.empty-state')) {
+                container.innerHTML = '';
+            }
+            
+            const date = new Date();
+            const timeStr = date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">👤</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="message-author">Vous</span>
+                        <span class="message-time">${timeStr}</span>
+                    </div>
+                    <div class="message-text">${escapeHtml(text)}</div>
+                </div>
+            `;
+            container.appendChild(messageDiv);
+            scrollToBottom();
+        }
+        
+        // Ajouter un message assistant
+        function addAssistantMessage(text, sources = []) {
+            const container = document.getElementById('messagesContainer');
+            
+            const date = new Date();
+            const timeStr = date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message assistant';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="message-author">Assistant</span>
+                        <span class="message-time">${timeStr}</span>
+                    </div>
+                    <div class="message-text">${escapeHtml(text)}</div>
+                    ${sources.length > 0 ? `
+                        <div class="message-sources">
+                            <div class="message-sources-title">Sources:</div>
+                            <div class="message-sources-list">
+                                ${sources.map(src => `<span class="source-tag">${escapeHtml(src)}</span>`).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            container.appendChild(messageDiv);
+            scrollToBottom();
+        }
+        
+        // Ajouter un message d'erreur
+        function addErrorMessage(text) {
+            const container = document.getElementById('messagesContainer');
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message assistant';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">⚠️</div>
+                <div class="message-content">
+                    <div class="message-text" style="color: var(--error-text);">${escapeHtml(text)}</div>
+                </div>
+            `;
+            container.appendChild(messageDiv);
+            scrollToBottom();
+        }
+        
+        // Scroll vers le bas
+        function scrollToBottom() {
+            const container = document.getElementById('messagesContainer');
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        // Gérer les touches du clavier
+        function handleInputKeydown(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+        
+        // Ajuster la hauteur du textarea
+        function adjustTextareaHeight(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px';
+        }
+        
+        // Échapper le HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Auto-resize textarea
+        document.getElementById('chatInput').addEventListener('input', function() {
+            adjustTextareaHeight(this);
+        });
+    </script>
+</body>
+</html>
+
