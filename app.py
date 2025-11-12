@@ -6,11 +6,18 @@ import os
 import sys
 import yaml
 import pickle
+import logging
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
 from flask import Flask, render_template, request, jsonify
 from langchain_community.vectorstores import SKLearnVectorStore
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
 from langchain_core.prompts import PromptTemplate
 from ingest import ingest_urls
+from dotenv import load_dotenv
+
+# Charger les variables d'environnement depuis .env si le fichier existe
+load_dotenv()
 
 # Forcer l'encodage UTF-8 pour la console Windows
 if sys.platform == 'win32':
@@ -23,10 +30,77 @@ if 'USER_AGENT' not in os.environ:
 
 app = Flask(__name__)
 
+def setup_logging(config):
+    """Configure le système de logging"""
+    log_config = config.get('logging', {})
+    log_level = getattr(logging, log_config.get('level', 'INFO').upper(), logging.INFO)
+    
+    # Formatter
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    
+    # Handler console (avec gestion UTF-8 pour Windows)
+    class UTF8StreamHandler(logging.StreamHandler):
+        """Handler qui gère l'encodage UTF-8 sur Windows"""
+        def emit(self, record):
+            try:
+                msg = self.format(record)
+                if sys.platform == 'win32':
+                    # Encoder en UTF-8 et remplacer les caractères non encodables
+                    msg = msg.encode('utf-8', errors='replace').decode('utf-8', errors='replace')
+                stream = self.stream
+                stream.write(msg + self.terminator)
+                self.flush()
+            except Exception:
+                self.handleError(record)
+    
+    console_handler = UTF8StreamHandler(sys.stdout)
+    console_handler.setFormatter(formatter)
+    console_handler.setLevel(log_level)
+    
+    # Handler fichier (si configuré)
+    log_file = log_config.get('file')
+    handlers = [console_handler]
+    
+    if log_file:
+        # Créer le dossier de logs si nécessaire
+        log_path = Path(log_file)
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        # Handler rotatif pour les fichiers
+        file_handler = RotatingFileHandler(
+            log_file,
+            maxBytes=log_config.get('max_bytes', 10485760),  # 10MB par défaut
+            backupCount=log_config.get('backup_count', 5)
+        )
+        file_handler.setFormatter(formatter)
+        file_handler.setLevel(log_level)
+        handlers.append(file_handler)
+    
+    # Configurer le logger racine
+    logging.basicConfig(
+        level=log_level,
+        handlers=handlers,
+        force=True  # Forcer la reconfiguration
+    )
+    
+    # Réduire le niveau de log de certaines bibliothèques
+    logging.getLogger('werkzeug').setLevel(logging.WARNING)
+    logging.getLogger('urllib3').setLevel(logging.WARNING)
+    
+    return logging.getLogger(__name__)
+
 def load_config():
     """Charge la configuration depuis config.yaml"""
     with open('config.yaml', 'r', encoding='utf-8') as f:
         return yaml.safe_load(f)
+
+def is_production():
+    """Détecte si on est en mode production"""
+    flask_env = os.environ.get('FLASK_ENV', '').lower()
+    return flask_env == 'production' or os.environ.get('PRODUCTION', '').lower() == 'true'
 
 def load_vectorstore():
     """Charge le vector store depuis le fichier"""
@@ -47,8 +121,13 @@ def load_vectorstore():
         for doc, meta in zip(save_data['documents'], save_data['metadatas'])
     ]
     
-    # Recréer le vector store
-    embeddings = OllamaEmbeddings(model=save_data.get('embedding_model', config['models']['embedding_model']))
+    # Recréer le vector store (avec timeout pour les embeddings)
+    ollama_config = config.get('ollama', {})
+    # Note: OllamaEmbeddings n'accepte pas timeout directement, on utilise base_url avec timeout dans l'URL si nécessaire
+    embeddings = OllamaEmbeddings(
+        model=save_data.get('embedding_model', config['models']['embedding_model']),
+        base_url=ollama_config.get('base_url', 'http://localhost:11434')
+    )
     vectorstore = SKLearnVectorStore.from_documents(
         documents=documents,
         embedding=embeddings
@@ -58,7 +137,24 @@ def load_vectorstore():
 
 # Charger la configuration et le vector store au démarrage
 config = load_config()
+
+# Configurer le logging
+logger = setup_logging(config)
+logger.info("Demarrage de l'application RAG")
+
+# Détecter le mode production
+production_mode = is_production()
+if production_mode:
+    logger.info("Mode PRODUCTION detecte - debug desactive")
+    config['web']['debug'] = False
+else:
+    logger.info("Mode DEVELOPPEMENT - debug active")
+
 vectorstore = load_vectorstore()
+if vectorstore is None:
+    logger.warning("Vector store non trouve. Lancez d'abord: python ingest.py")
+else:
+    logger.info("Vector store charge avec succes")
 
 def reload_vectorstore():
     """Recharge le vector store depuis le fichier"""
@@ -86,11 +182,17 @@ def query():
         if vectorstore is None:
             return jsonify({'error': 'Vector store non trouvé. Lancez d\'abord l\'indexation avec: python ingest.py'}), 400
         
-        # Initialiser le LLM avec Ollama
+        # Initialiser le LLM avec Ollama (avec timeout et max_tokens)
+        ollama_config = config.get('ollama', {})
         llm = OllamaLLM(
             model=config['models']['generation_model'],
-            temperature=config['models']['temperature']
+            temperature=config['models']['temperature'],
+            num_predict=config['models'].get('max_tokens', 1024),  # max_tokens pour Ollama
+            base_url=ollama_config.get('base_url', 'http://localhost:11434'),
+            timeout=ollama_config.get('timeout', 120)
         )
+        
+        logger.info(f"Requete: {query_text[:100]}...")
         
         # Créer le retriever
         retriever = vectorstore.as_retriever(
@@ -117,10 +219,13 @@ Réponse:"""
         prompt = prompt_template.format(context=context, question=query_text)
         
         # Générer la réponse
+        logger.debug(f"Génération de la réponse avec {len(docs)} chunks...")
         answer = llm.invoke(prompt)
         
         # Extraire les sources
         sources = list(set([doc.metadata.get('source', 'Inconnu') for doc in docs]))
+        
+        logger.info(f"Reponse generee - {len(sources)} source(s), {len(docs)} chunk(s)")
         
         return jsonify({
             'answer': answer,
@@ -129,7 +234,9 @@ Réponse:"""
         })
         
     except Exception as e:
-        return jsonify({'error': f'Erreur: {str(e)}'}), 500
+        logger.error(f"Erreur lors de la requete: {str(e)}", exc_info=True)
+        error_msg = str(e) if config['web']['debug'] else "Une erreur est survenue lors du traitement de votre requête"
+        return jsonify({'error': error_msg}), 500
 
 @app.route('/api/documents')
 def list_documents():
@@ -184,12 +291,15 @@ def index_url():
         if isinstance(urls, str):
             urls = [urls]
         
+        logger.info(f"Indexation de {len(urls)} URL(s): {urls}")
+        
         # Indexer les URLs
         success, message, chunks_count = ingest_urls(urls, config)
         
         if success:
             # Recharger le vector store
             reload_vectorstore()
+            logger.info(f"Indexation reussie: {chunks_count} chunks ajoutes")
             return jsonify({
                 'success': True,
                 'message': message,
@@ -197,15 +307,18 @@ def index_url():
                 'urls_indexed': urls
             })
         else:
+            logger.error(f"Erreur d'indexation: {message}")
             return jsonify({
                 'success': False,
                 'error': message
             }), 400
         
     except Exception as e:
+        logger.error(f"Erreur lors de l'indexation d'URLs: {str(e)}", exc_info=True)
+        error_msg = str(e) if config['web']['debug'] else "Une erreur est survenue lors de l'indexation"
         return jsonify({
             'success': False,
-            'error': f'Erreur: {str(e)}'
+            'error': error_msg
         }), 500
 
 @app.route('/api/status')
@@ -239,11 +352,10 @@ def status():
         }), 500
 
 if __name__ == '__main__':
-    print("🚀 Démarrage de l'interface web RAG...")
-    print(f"📱 Ouvrez votre navigateur sur: http://{config['web']['host']}:{config['web']['port']}")
+    logger.info(f"Ouvrez votre navigateur sur: http://{config['web']['host']}:{config['web']['port']}")
     
     if vectorstore is None:
-        print("⚠️  Vector store non trouvé. Lancez d'abord: python ingest.py")
+        logger.warning("Vector store non trouve. Lancez d'abord: python ingest.py")
     
     app.run(
         debug=config['web']['debug'],

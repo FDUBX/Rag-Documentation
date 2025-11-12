@@ -82,7 +82,12 @@ def load_and_index_documents(documents_to_index, config=None, reset=False):
     splits = text_splitter.split_documents(documents_to_index)
     
     # Créer les embeddings avec Ollama
-    embeddings = OllamaEmbeddings(model=config['models']['embedding_model'])
+    ollama_config = config.get('ollama', {})
+    # Note: OllamaEmbeddings n'accepte pas timeout directement
+    embeddings = OllamaEmbeddings(
+        model=config['models']['embedding_model'],
+        base_url=ollama_config.get('base_url', 'http://localhost:11434')
+    )
     
     # Charger le vector store existant s'il existe (sauf si reset)
     vectorstore_path = os.path.join(vectorstore_dir, "vectorstore.pkl")

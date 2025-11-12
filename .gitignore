@@ -54,6 +54,7 @@ config.local.yaml
 *.log
 logs/
 *.log.*
+!logs/.gitkeep
 
 # IDE / Éditeurs
 .vscode/
