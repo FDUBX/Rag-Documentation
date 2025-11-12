@@ -10,11 +10,16 @@ from flask import Flask, render_template, request, jsonify
 from langchain_community.vectorstores import SKLearnVectorStore
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
 from langchain_core.prompts import PromptTemplate
+from ingest import ingest_urls
 
 # Forcer l'encodage UTF-8 pour la console Windows
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
     sys.stderr.reconfigure(encoding='utf-8')
+
+# Configurer USER_AGENT par défaut si non défini
+if 'USER_AGENT' not in os.environ:
+    os.environ['USER_AGENT'] = 'RAG-Documentation/1.0'
 
 app = Flask(__name__)
 
@@ -54,6 +59,12 @@ def load_vectorstore():
 # Charger la configuration et le vector store au démarrage
 config = load_config()
 vectorstore = load_vectorstore()
+
+def reload_vectorstore():
+    """Recharge le vector store depuis le fichier"""
+    global vectorstore
+    vectorstore = load_vectorstore()
+    return vectorstore
 
 @app.route('/')
 def index():
@@ -157,6 +168,46 @@ def list_documents():
             'documents': []
         }), 500
 
+@app.route('/api/index-url', methods=['POST'])
+def index_url():
+    """API pour indexer une ou plusieurs URLs web"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'success': False, 'error': 'Données JSON requises'}), 400
+        
+        urls = data.get('urls', [])
+        if not urls:
+            return jsonify({'success': False, 'error': 'Aucune URL fournie'}), 400
+        
+        # Normaliser en liste si une seule URL est fournie
+        if isinstance(urls, str):
+            urls = [urls]
+        
+        # Indexer les URLs
+        success, message, chunks_count = ingest_urls(urls, config)
+        
+        if success:
+            # Recharger le vector store
+            reload_vectorstore()
+            return jsonify({
+                'success': True,
+                'message': message,
+                'chunks_count': chunks_count,
+                'urls_indexed': urls
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'error': message
+            }), 400
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Erreur: {str(e)}'
+        }), 500
+
 @app.route('/api/status')
 def status():
     """Vérification du statut du système"""
@@ -197,5 +248,6 @@ if __name__ == '__main__':
     app.run(
         debug=config['web']['debug'],
         host=config['web']['host'],
-        port=config['web']['port']
+        port=config['web']['port'],
+        use_reloader=config['web'].get('use_reloader', False)
     )

@@ -38,6 +38,9 @@ vectorstore/*.index
 vectorstore/*.faiss
 vectorstore/*.chroma
 
+# Sauvegarde des URLs indexées (optionnel - décommenter si vous ne voulez pas versionner)
+# vectorstore/indexed_urls.json
+
 # Fichiers de configuration sensibles
 .env
 .env.local
