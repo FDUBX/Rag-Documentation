@@ -48,6 +48,30 @@ Cette commande va :
 - Générer les embeddings avec Ollama
 - Créer le vector store avec scikit-learn
 
+**Options disponibles** :
+
+- `--reset` : Réinitialise complètement l'index (supprime le vector store existant avant d'indexer)
+  ```bash
+  python ingest.py --reset
+  ```
+
+- `--list-urls` : Liste toutes les URLs sauvegardées
+  ```bash
+  python ingest.py --list-urls
+  ```
+
+- `--reindex-urls` : Réindexe toutes les URLs sauvegardées (utile après un reset)
+  ```bash
+  python ingest.py --reindex-urls
+  ```
+
+- `--reset --reindex-urls` : Reset puis réindexe automatiquement les URLs sauvegardées
+  ```bash
+  python ingest.py --reset --reindex-urls
+  ```
+
+> ⚠️ **Attention** : L'option `--reset` supprime tous les documents déjà indexés. Les URLs indexées via l'interface web sont sauvegardées dans `vectorstore/indexed_urls.json` et peuvent être réindexées avec `--reindex-urls`.
+
 ### 2. Lancer l'interface web
 
 ```bash

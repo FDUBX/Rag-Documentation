@@ -4,6 +4,7 @@
 paths:
   data_dir: "./data"              # Dossier contenant les documents à indexer
   vectorstore_dir: "./vectorstore" # Dossier pour le vector store
+  urls_file: "./vectorstore/indexed_urls.json"  # Fichier de sauvegarde des URLs indexées
 
 # Paramètres de découpage des documents
 chunking:
@@ -25,5 +26,10 @@ models:
 web:
   host: "0.0.0.0"
   port: 5000
-  debug: true
+  debug: true                    # Mode debug (affiche les erreurs détaillées)
+  use_reloader: false           # Désactive le rechargement automatique (évite le double démarrage)
+
+# Configuration pour le chargement de pages web
+web_loader:
+  user_agent: "RAG-Documentation/1.0 (https://github.com/your-repo/rag-documentation)"  # User-Agent pour les requêtes HTTP
 
