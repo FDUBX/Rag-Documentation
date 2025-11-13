@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents - RAG Assistant</title>
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --bg-elev: #0f1620;
+            --panel: #141b26;
+            --text: #e6e9ef;
+            --muted: #9aa4b2;
+            --accent: #2f5085;
+            --accent-strong: #546785;
+            --success: #4ade80;
+            --error: #f87171;
+            --ring: rgba(110,168,254,0.35);
+            --shadow: 0 10px 30px rgba(0,0,0,0.45);
+            --radius: 14px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: var(--bg-elev);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        .back-btn {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: var(--bg-elev);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .document-card {
+            background: var(--panel);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .document-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border-color: rgba(130,177,255,0.3);
+        }
+        .document-icon {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+        .document-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            word-break: break-word;
+        }
+        .document-size {
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .empty-state {
+            background: var(--bg-elev);
+            border-radius: var(--radius);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .empty-state-icon {
+            font-size: 4em;
+            margin-bottom: 16px;
+        }
+        .empty-state h2 {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+        .empty-state p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .error-state {
+            background: rgba(248,113,113,0.1);
+            border: 1px solid rgba(248,113,113,0.3);
+            border-radius: var(--radius);
+            padding: 20px;
+            color: var(--error);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Documents indexés</h1>
+            <a href="/" class="back-btn">← Retour au chat</a>
+        </div>
+
+        {% if error %}
+        <div class="error-state">
+            <strong>Erreur :</strong> {{ error }}
+        </div>
+        {% else %}
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total de sources</div>
+                <div class="stat-value">{{ count }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Documents</div>
+                <div class="stat-value">{{ documents_count }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">URLs indexées</div>
+                <div class="stat-value">{{ urls_count }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Taille totale</div>
+                <div class="stat-value">{{ total_size_formatted }}</div>
+            </div>
+        </div>
+
+        {% if documents %}
+        <div style="margin-bottom: 32px;">
+            <h2 style="font-size: 1.3em; margin-bottom: 16px; color: var(--accent);">📄 Documents</h2>
+            <div class="documents-grid">
+                {% for doc in documents %}
+                <div class="document-card">
+                    <div class="document-icon">
+                        {% if doc.name.endswith('.pdf') %}📄
+                        {% elif doc.name.endswith('.txt') or doc.name.endswith('.md') %}📝
+                        {% elif doc.name.endswith('.docx') or doc.name.endswith('.doc') %}📘
+                        {% else %}📄
+                        {% endif %}
+                    </div>
+                    <div class="document-name">{{ doc.name }}</div>
+                    <div class="document-size">{{ doc.size_formatted }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if urls %}
+        <div>
+            <h2 style="font-size: 1.3em; margin-bottom: 16px; color: var(--accent);">🌐 URLs indexées</h2>
+            <div class="documents-grid">
+                {% for url_item in urls %}
+                <div class="document-card">
+                    <div class="document-icon">🌐</div>
+                    <div class="document-name" style="word-break: break-all;">
+                        <a href="{{ url_item.url }}" target="_blank" rel="noopener noreferrer" 
+                           style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">
+                            {{ url_item.url }}
+                        </a>
+                    </div>
+                    <div class="document-size" style="color: var(--success);">✓ Indexée</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if not documents and not urls %}
+        <div class="empty-state">
+            <div class="empty-state-icon">📂</div>
+            <h2>Aucune source trouvée</h2>
+            <p>Placez vos documents dans le dossier <code>data/</code> et lancez l'indexation avec <code>python ingest.py</code></p>
+            <p style="margin-top: 12px;">Ou indexez des URLs depuis l'interface de chat.</p>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
+

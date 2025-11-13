@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAG Assistant - Chat</title>
+    <title>ChatAVL</title>
     <style>
         :root {
             --bg: #0b0f14;
@@ -30,9 +30,102 @@
             height: 100vh;
             overflow: hidden;
         }
+        .main-container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 280px;
+            background: var(--bg-elev);
+            border-right: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .sidebar-header h2 {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+        .new-conversation-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+            color: #0b1017;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .new-conversation-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.03);
+        }
+        .conversations-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+        .conversation-item {
+            padding: 12px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .conversation-item:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .conversation-item.active {
+            background: rgba(130,177,255,0.15);
+            border: 1px solid rgba(130,177,255,0.3);
+        }
+        .conversation-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .conversation-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .conversation-date {
+            font-size: 11px;
+            color: var(--muted);
+        }
+        .conversation-delete {
+            opacity: 0;
+            padding: 4px 8px;
+            background: rgba(255,100,100,0.2);
+            border: none;
+            color: #ffb4c0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .conversation-item:hover .conversation-delete {
+            opacity: 1;
+        }
+        .conversation-delete:hover {
+            background: rgba(255,100,100,0.3);
+        }
         .chat-container {
             display: flex;
             flex-direction: column;
+            flex: 1;
             height: 100vh;
         }
         .chat-header {
@@ -421,35 +514,46 @@
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>💬 RAG Assistant</h1>
-            <div class="chat-header-actions">
-                <button class="header-btn" onclick="openIndexModal()">🌐 Indexer URL</button>
-                <a href="/api/documents" class="header-btn">📚 Documents</a>
-                <a href="/api/status" class="header-btn">📊 Status</a>
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>💬 Conversations</h2>
+                <button class="new-conversation-btn" onclick="createNewConversation()">+ Nouvelle conversation</button>
+            </div>
+            <div class="conversations-list" id="conversationsList">
+                <!-- Les conversations seront chargées ici -->
             </div>
         </div>
-        
-        <div class="messages-container" id="messagesContainer">
-            <div class="empty-state">
-                <h2>👋 Bonjour !</h2>
-                <p>Posez votre question sur la documentation technique</p>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>💬 ChatAVL</h1>
+                <div class="chat-header-actions">
+                    <button class="header-btn" onclick="openIndexModal()">🌐 Indexer URL</button>
+                    <a href="/api/documents" class="header-btn">📚 Documents</a>
+                    <a href="/api/status" class="header-btn">📊 Status</a>
+                </div>
             </div>
-        </div>
         
-        <div class="input-container">
-            <div class="input-wrapper">
-                <textarea 
-                    id="chatInput" 
-                    class="chat-input" 
-                    placeholder="Posez votre question..."
-                    rows="1"
-                    onkeydown="handleInputKeydown(event)"
-                ></textarea>
-                <button class="send-button" id="sendButton" onclick="sendMessage()">
-                    Envoyer
-                </button>
+            <div class="messages-container" id="messagesContainer">
+                <div class="empty-state">
+                    <h2>👋 Bonjour !</h2>
+                    <p>Posez votre question sur la documentation technique</p>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="chatInput" 
+                        class="chat-input" 
+                        placeholder="Posez votre question..."
+                        rows="1"
+                        onkeydown="handleInputKeydown(event)"
+                    ></textarea>
+                    <button class="send-button" id="sendButton" onclick="sendMessage()">
+                        Envoyer
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -489,8 +593,702 @@
         </div>
     </div>
 
+    <!-- Modal de sélection de sources -->
+    <div id="sourceSelectionModal" class="modal">
+        <div class="modal-content source-modal-content">
+            <div class="modal-header source-modal-header">
+                <div class="source-modal-title-wrapper">
+                    <div class="source-modal-icon">✨</div>
+                    <div>
+                        <h2 style="margin: 0; font-size: 1.4em; background: linear-gradient(135deg, var(--accent), rgba(130,177,255,0.8)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Sélectionner les sources</h2>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; color: var(--muted);">Choisissez les documents ou URLs pour cette conversation</p>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeSourceSelectionModal()">&times;</button>
+            </div>
+            <div class="modal-body source-modal-body">
+                <div class="select-all-wrapper">
+                    <label class="select-all-label" for="selectAllSources">
+                        <div class="custom-checkbox-wrapper">
+                            <input type="checkbox" id="selectAllSources" onchange="toggleAllSources()" class="custom-checkbox">
+                            <span class="custom-checkbox-checkmark"></span>
+                        </div>
+                        <div class="select-all-text">
+                            <span class="select-all-title">Sélectionner toutes les sources</span>
+                            <span class="select-all-subtitle">Par défaut, toutes les sources sont disponibles</span>
+                        </div>
+                    </label>
+                </div>
+                <div id="sourcesList" class="sources-list-container">
+                    <div class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <span>Chargement des sources...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer source-modal-footer">
+                <button class="modal-btn modal-btn-secondary" onclick="closeSourceSelectionModal()">Annuler</button>
+                <button class="modal-btn modal-btn-primary source-create-btn" id="createConversationButton" onclick="confirmCreateConversation()">
+                    <span>Créer la conversation</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .source-modal-content {
+            max-width: 700px;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .source-modal-header {
+            background: linear-gradient(135deg, rgba(47,80,133,0.1), rgba(130,177,255,0.05));
+            border-bottom: 1px solid rgba(130,177,255,0.2);
+            padding: 24px;
+        }
+        
+        .source-modal-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .source-modal-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent), rgba(130,177,255,0.8));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(130,177,255,0.3);
+        }
+        
+        .source-modal-body {
+            padding: 24px;
+        }
+        
+        .select-all-wrapper {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(130,177,255,0.05);
+            border: 1px solid rgba(130,177,255,0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .select-all-wrapper:hover {
+            background: rgba(130,177,255,0.08);
+            border-color: rgba(130,177,255,0.3);
+            transform: translateX(4px);
+        }
+        
+        .select-all-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            cursor: pointer;
+        }
+        
+        .custom-checkbox-wrapper {
+            position: relative;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-top: 2px;
+        }
+        
+        .custom-checkbox {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            z-index: 1;
+            margin: 0;
+        }
+        
+        .custom-checkbox-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .custom-checkbox:checked ~ .custom-checkbox-checkmark {
+            background: linear-gradient(135deg, var(--accent), rgba(130,177,255,0.8));
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(130,177,255,0.2);
+        }
+        
+        .custom-checkbox-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .custom-checkbox:checked ~ .custom-checkbox-checkmark:after {
+            display: block;
+        }
+        
+        .select-all-text {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .select-all-title {
+            display: block;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        
+        .select-all-subtitle {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.4;
+            margin-top: 2px;
+        }
+        
+        .sources-list-container {
+            max-height: 450px;
+            overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 12px;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .sources-list-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .sources-list-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .sources-list-container::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .sources-list-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .source-section {
+            margin-bottom: 20px;
+        }
+        
+        .source-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .source-section-title {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .source-section-title::before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+        
+        .source-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            margin-bottom: 8px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .source-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), rgba(130,177,255,0.8));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .source-item:hover {
+            background: rgba(130,177,255,0.08);
+            border-color: rgba(130,177,255,0.3);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .source-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .source-item.selected {
+            background: rgba(130,177,255,0.12);
+            border-color: rgba(130,177,255,0.4);
+        }
+        
+        .source-item.selected::before {
+            transform: scaleY(1);
+        }
+        
+        .source-checkbox-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .source-checkbox {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            z-index: 1;
+        }
+        
+        .source-checkbox-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .source-checkbox:checked ~ .source-checkbox-checkmark {
+            background: linear-gradient(135deg, var(--accent), rgba(130,177,255,0.8));
+            border-color: var(--accent);
+        }
+        
+        .source-checkbox-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .source-checkbox:checked ~ .source-checkbox-checkmark:after {
+            display: block;
+        }
+        
+        .source-name {
+            flex: 1;
+            font-size: 14px;
+            color: var(--text);
+            word-break: break-word;
+            line-height: 1.4;
+        }
+        
+        .source-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .loading-state {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .loading-spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .source-modal-footer {
+            padding: 20px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .source-create-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .source-create-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .source-create-btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .source-create-btn:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+    </style>
+
     <script>
         let urlsToIndex = [];
+        let currentConversationId = null;
+        let pendingMessage = null;
+        
+        // Charger les conversations au démarrage
+        window.addEventListener('DOMContentLoaded', function() {
+            loadConversations();
+        });
+        
+        // Charger la liste des conversations
+        function loadConversations() {
+            fetch('/api/conversations')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayConversations(data.conversations);
+                        // Charger la première conversation si aucune n'est active
+                        if (!currentConversationId && data.conversations.length > 0) {
+                            loadConversation(data.conversations[0].id);
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement des conversations:', error);
+                });
+        }
+        
+        // Afficher la liste des conversations
+        function displayConversations(conversations) {
+            const list = document.getElementById('conversationsList');
+            
+            if (conversations.length === 0) {
+                list.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted); font-size: 13px;">Aucune conversation</div>';
+                return;
+            }
+            
+            list.innerHTML = conversations.map(conv => {
+                const date = new Date(conv.updated_at);
+                const dateStr = date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                const timeStr = date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+                const isActive = conv.id === currentConversationId;
+                const hasFilteredSources = conv.filtered_sources && conv.filtered_sources.length > 0;
+                const sourceCount = hasFilteredSources ? conv.filtered_sources.length : null;
+                
+                return `
+                    <div class="conversation-item ${isActive ? 'active' : ''}" onclick="loadConversation('${conv.id}')">
+                        <div class="conversation-content">
+                            <div class="conversation-title">
+                                ${escapeHtml(conv.title)}
+                                ${hasFilteredSources ? `<span style="font-size: 10px; color: var(--muted); margin-left: 6px;">🔍 ${sourceCount} source(s)</span>` : ''}
+                            </div>
+                            <div class="conversation-date">${dateStr} ${timeStr}</div>
+                        </div>
+                        <button class="conversation-delete" onclick="event.stopPropagation(); deleteConversation('${conv.id}')" title="Supprimer">✕</button>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Ouvrir le modal de sélection de sources pour créer une nouvelle conversation
+        function createNewConversation() {
+            openSourceSelectionModal();
+        }
+        
+        // Ouvrir le modal de sélection de sources
+        function openSourceSelectionModal() {
+            document.getElementById('sourceSelectionModal').classList.add('active');
+            loadSourcesForSelection();
+        }
+        
+        // Fermer le modal de sélection de sources
+        function closeSourceSelectionModal() {
+            document.getElementById('sourceSelectionModal').classList.remove('active');
+        }
+        
+        // Charger les sources disponibles
+        function loadSourcesForSelection() {
+            const sourcesList = document.getElementById('sourcesList');
+            sourcesList.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);"><span class="loading-indicator"></span> Chargement des sources...</div>';
+            
+            fetch('/api/sources')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displaySourcesForSelection(data.sources);
+                    } else {
+                        sourcesList.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--error-text);">Erreur: ${escapeHtml(data.error || 'Impossible de charger les sources')}</div>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement des sources:', error);
+                    sourcesList.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--error-text);">Erreur lors du chargement des sources</div>`;
+                });
+        }
+        
+        // Afficher les sources pour sélection
+        function displaySourcesForSelection(sources) {
+            const sourcesList = document.getElementById('sourcesList');
+            
+            if (sources.length === 0) {
+                sourcesList.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted); font-size: 13px;">Aucune source disponible</div>';
+                return;
+            }
+            
+            // Grouper par type
+            const files = sources.filter(s => s.type === 'file');
+            const urls = sources.filter(s => s.type === 'url');
+            
+            let html = '';
+            
+            if (files.length > 0) {
+                html += '<div class="source-section">';
+                html += '<div class="source-section-title"><span>📄</span> Documents</div>';
+                files.forEach(source => {
+                    const icon = source.name.endsWith('.pdf') ? '📄' : 
+                                 (source.name.endsWith('.txt') || source.name.endsWith('.md')) ? '📝' :
+                                 (source.name.endsWith('.docx') || source.name.endsWith('.doc')) ? '📘' : '📄';
+                    html += `
+                        <div class="source-item" onclick="toggleSourceCheckbox(this)">
+                            <div class="source-checkbox-wrapper">
+                                <input type="checkbox" class="source-checkbox" value="${escapeHtml(source.source)}" data-type="${source.type}" onchange="updateSourceItemState(this)">
+                                <span class="source-checkbox-checkmark"></span>
+                            </div>
+                            <span class="source-icon">${icon}</span>
+                            <span class="source-name">${escapeHtml(source.name)}</span>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            if (urls.length > 0) {
+                html += '<div class="source-section">';
+                html += '<div class="source-section-title"><span>🌐</span> URLs</div>';
+                urls.forEach(source => {
+                    html += `
+                        <div class="source-item" onclick="toggleSourceCheckbox(this)">
+                            <div class="source-checkbox-wrapper">
+                                <input type="checkbox" class="source-checkbox" value="${escapeHtml(source.source)}" data-type="${source.type}" onchange="updateSourceItemState(this)">
+                                <span class="source-checkbox-checkmark"></span>
+                            </div>
+                            <span class="source-icon">🌐</span>
+                            <span class="source-name">${escapeHtml(source.name)}</span>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            sourcesList.innerHTML = html;
+            
+            // Par défaut, aucune source n'est sélectionnée (opt-out)
+            document.getElementById('selectAllSources').checked = false;
+        }
+        
+        // Toggle checkbox when clicking on source item
+        function toggleSourceCheckbox(item) {
+            const checkbox = item.querySelector('.source-checkbox');
+            checkbox.checked = !checkbox.checked;
+            updateSourceItemState(checkbox);
+        }
+        
+        // Update visual state of source item
+        function updateSourceItemState(checkbox) {
+            const item = checkbox.closest('.source-item');
+            if (item) {
+                if (checkbox.checked) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            }
+        }
+        
+        // Toggle toutes les sources
+        function toggleAllSources() {
+            const selectAll = document.getElementById('selectAllSources').checked;
+            const checkboxes = document.querySelectorAll('.source-checkbox');
+            checkboxes.forEach(cb => {
+                cb.checked = selectAll;
+                updateSourceItemState(cb);
+            });
+        }
+        
+        // Confirmer la création de la conversation avec les sources sélectionnées
+        function confirmCreateConversation() {
+            const checkboxes = document.querySelectorAll('.source-checkbox:checked');
+            const selectedSources = Array.from(checkboxes).map(cb => cb.value);
+            
+            // Si aucune source n'est sélectionnée, filtered_sources sera null (toutes les sources)
+            const filteredSources = selectedSources.length > 0 ? selectedSources : null;
+            
+            fetch('/api/conversations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    filtered_sources: filteredSources
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    currentConversationId = data.conversation.id;
+                    clearMessages();
+                    closeSourceSelectionModal();
+                    loadConversations();
+                    
+                    // Envoyer le message en attente s'il y en a un
+                    if (pendingMessage) {
+                        const message = pendingMessage;
+                        pendingMessage = null;
+                        sendMessageWithConversation(message);
+                    }
+                } else {
+                    alert('Erreur lors de la création de la conversation: ' + (data.error || 'Erreur inconnue'));
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la création de la conversation:', error);
+                alert('Erreur lors de la création de la conversation');
+            });
+        }
+        
+        // Fermer le modal en cliquant en dehors
+        document.getElementById('sourceSelectionModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSourceSelectionModal();
+            }
+        });
+        
+        // Charger une conversation
+        function loadConversation(conversationId) {
+            fetch(`/api/conversations/${conversationId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        currentConversationId = conversationId;
+                        clearMessages();
+                        
+                        // Afficher tous les messages de la conversation
+                        data.conversation.messages.forEach(msg => {
+                            if (msg.role === 'user') {
+                                addUserMessage(msg.content);
+                            } else if (msg.role === 'assistant') {
+                                addAssistantMessage(msg.content, msg.sources || []);
+                            }
+                        });
+                        
+                        loadConversations(); // Mettre à jour la liste pour afficher l'état actif
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement de la conversation:', error);
+                });
+        }
+        
+        // Supprimer une conversation
+        function deleteConversation(conversationId) {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer cette conversation ?')) {
+                return;
+            }
+            
+            fetch(`/api/conversations/${conversationId}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    if (currentConversationId === conversationId) {
+                        currentConversationId = null;
+                        clearMessages();
+                    }
+                    loadConversations();
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la suppression de la conversation:', error);
+            });
+        }
+        
+        // Effacer les messages affichés
+        function clearMessages() {
+            const container = document.getElementById('messagesContainer');
+            container.innerHTML = '';
+        }
 
         // Ouvrir le modal
         function openIndexModal() {
@@ -615,6 +1413,22 @@
             
             if (!message) return;
             
+            // Créer une nouvelle conversation si nécessaire
+            if (!currentConversationId) {
+                // Sauvegarder le message pour l'envoyer après la création
+                pendingMessage = message;
+                input.value = '';
+                openSourceSelectionModal();
+                return;
+            }
+            
+            sendMessageWithConversation(message);
+        }
+        
+        // Envoyer un message avec une conversation
+        function sendMessageWithConversation(message) {
+            const input = document.getElementById('chatInput');
+            
             // Afficher le message de l'utilisateur
             addUserMessage(message);
             input.value = '';
@@ -625,17 +1439,25 @@
             sendButton.disabled = true;
             sendButton.innerHTML = '<span class="loading-indicator"></span>';
             
-            // Envoyer la requête
+            // Envoyer la requête avec l'ID de conversation
             fetch('/api/query', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query: message })
+                body: JSON.stringify({ 
+                    query: message,
+                    conversation_id: currentConversationId
+                })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
                     addErrorMessage(data.error);
                 } else {
+                    // Mettre à jour l'ID de conversation si une nouvelle a été créée
+                    if (data.conversation_id) {
+                        currentConversationId = data.conversation_id;
+                        loadConversations(); // Rafraîchir la liste
+                    }
                     addAssistantMessage(data.answer, data.sources || []);
                 }
             })

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statut du système - RAG Assistant</title>
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --bg-elev: #0f1620;
+            --panel: #141b26;
+            --text: #e6e9ef;
+            --muted: #9aa4b2;
+            --accent: #2f5085;
+            --accent-strong: #546785;
+            --success: #4ade80;
+            --error: #f87171;
+            --warning: #fbbf24;
+            --ring: rgba(110,168,254,0.35);
+            --shadow: 0 10px 30px rgba(0,0,0,0.45);
+            --radius: 14px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            background: var(--bg-elev);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        .back-btn {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .status-overview {
+            background: var(--bg-elev);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .status-badge.ok {
+            background: rgba(74,222,128,0.2);
+            color: var(--success);
+            border: 2px solid var(--success);
+        }
+        .status-badge.error {
+            background: rgba(248,113,113,0.2);
+            color: var(--error);
+            border: 2px solid var(--error);
+        }
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .status-card {
+            background: var(--panel);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .status-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .status-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+        }
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        .status-indicator.ok {
+            background: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+        .status-indicator.error {
+            background: var(--error);
+            box-shadow: 0 0 10px var(--error);
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .status-value {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .status-value.ok {
+            color: var(--success);
+        }
+        .status-value.error {
+            color: var(--error);
+        }
+        .status-description {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .info-section {
+            background: var(--bg-elev);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+        .info-section h2 {
+            font-size: 1.2em;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .info-value {
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Statut du système</h1>
+            <a href="/" class="back-btn">← Retour au chat</a>
+        </div>
+
+        <div class="status-overview">
+            <div class="status-badge {{ 'ok' if status == 'OK' else 'error' }}">
+                {% if status == 'OK' %}✅ Système opérationnel
+                {% else %}❌ Problème détecté
+                {% endif %}
+            </div>
+            <p style="color: var(--muted); font-size: 14px;">
+                Dernière vérification : {{ timestamp }}
+            </p>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-card-header">
+                    <div class="status-card-title">Ollama</div>
+                    <div class="status-indicator {{ 'ok' if ollama == 'OK' else 'error' }}"></div>
+                </div>
+                <div class="status-value {{ 'ok' if ollama == 'OK' else 'error' }}">
+                    {{ ollama }}
+                </div>
+                <div class="status-description">
+                    {% if ollama == 'OK' %}
+                    Le service Ollama est accessible et fonctionne correctement. Les modèles LLM peuvent être utilisés.
+                    {% else %}
+                    Le service Ollama n'est pas accessible ou rencontre une erreur. Vérifiez qu'Ollama est en cours d'exécution.
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-card-header">
+                    <div class="status-card-title">Vector Store</div>
+                    <div class="status-indicator {{ 'ok' if vectorstore == 'OK' else 'error' }}"></div>
+                </div>
+                <div class="status-value {{ 'ok' if vectorstore == 'OK' else 'error' }}">
+                    {{ vectorstore }}
+                </div>
+                <div class="status-description">
+                    {% if vectorstore == 'OK' %}
+                    L'index vectoriel est disponible. Les documents sont indexés et prêts à être interrogés.
+                    {% else %}
+                    L'index vectoriel est manquant. Lancez <code>python ingest.py</code> pour indexer vos documents.
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>ℹ️ Informations système</h2>
+            <div class="info-item">
+                <span class="info-label">Modèle d'embedding</span>
+                <span class="info-value">{{ embedding_model }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Modèle de génération</span>
+                <span class="info-value">{{ generation_model }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Base URL Ollama</span>
+                <span class="info-value">{{ ollama_base_url }}</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

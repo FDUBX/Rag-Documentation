@@ -6,7 +6,10 @@ import os
 import sys
 import yaml
 import pickle
+import json
 import logging
+import uuid
+from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from flask import Flask, render_template, request, jsonify
@@ -162,6 +165,129 @@ def reload_vectorstore():
     vectorstore = load_vectorstore()
     return vectorstore
 
+# ==================== GESTION DES CONVERSATIONS ====================
+
+def get_conversations_file_path():
+    """Retourne le chemin du fichier de stockage des conversations"""
+    conversations_file = config.get('paths', {}).get('conversations_file', './vectorstore/conversations.json')
+    return conversations_file
+
+def load_conversations():
+    """Charge toutes les conversations depuis le fichier"""
+    conversations_file = get_conversations_file_path()
+    
+    if not os.path.exists(conversations_file):
+        return {}
+    
+    try:
+        with open(conversations_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        logger.warning(f"Erreur lors du chargement des conversations: {e}")
+        return {}
+
+def save_conversations(conversations):
+    """Sauvegarde toutes les conversations dans le fichier"""
+    conversations_file = get_conversations_file_path()
+    conversations_dir = os.path.dirname(conversations_file)
+    
+    # Créer le dossier s'il n'existe pas
+    if conversations_dir:
+        os.makedirs(conversations_dir, exist_ok=True)
+    
+    try:
+        with open(conversations_file, 'w', encoding='utf-8') as f:
+            json.dump(conversations, f, indent=2, ensure_ascii=False)
+    except IOError as e:
+        logger.error(f"Erreur lors de la sauvegarde des conversations: {e}")
+
+def create_conversation(title=None, filtered_sources=None):
+    """Crée une nouvelle conversation
+    
+    Args:
+        title: Titre de la conversation
+        filtered_sources: Liste des sources à filtrer (None = toutes les sources)
+    """
+    conversations = load_conversations()
+    
+    conversation_id = str(uuid.uuid4())
+    now = datetime.now().isoformat()
+    
+    if not title:
+        title = f"Conversation {len(conversations) + 1}"
+    
+    conversation = {
+        'id': conversation_id,
+        'title': title,
+        'created_at': now,
+        'updated_at': now,
+        'messages': [],
+        'filtered_sources': filtered_sources if filtered_sources else None  # None = toutes les sources
+    }
+    
+    conversations[conversation_id] = conversation
+    save_conversations(conversations)
+    
+    logger.info(f"Nouvelle conversation creee: {conversation_id} - {title} (sources: {len(filtered_sources) if filtered_sources else 'toutes'})")
+    return conversation
+
+def get_conversation(conversation_id):
+    """Récupère une conversation par son ID"""
+    conversations = load_conversations()
+    return conversations.get(conversation_id)
+
+def add_message_to_conversation(conversation_id, role, content, sources=None):
+    """Ajoute un message à une conversation"""
+    conversations = load_conversations()
+    
+    if conversation_id not in conversations:
+        logger.warning(f"Conversation {conversation_id} non trouvee")
+        return None
+    
+    conversation = conversations[conversation_id]
+    now = datetime.now().isoformat()
+    
+    message = {
+        'role': role,  # 'user' ou 'assistant'
+        'content': content,
+        'timestamp': now,
+        'sources': sources or []
+    }
+    
+    conversation['messages'].append(message)
+    conversation['updated_at'] = now
+    
+    # Mettre à jour le titre si c'est le premier message utilisateur
+    if len(conversation['messages']) == 1 and role == 'user':
+        # Utiliser les 50 premiers caractères comme titre
+        title = content[:50] + ('...' if len(content) > 50 else '')
+        conversation['title'] = title
+    
+    save_conversations(conversations)
+    return message
+
+def delete_conversation(conversation_id):
+    """Supprime une conversation"""
+    conversations = load_conversations()
+    
+    if conversation_id in conversations:
+        del conversations[conversation_id]
+        save_conversations(conversations)
+        logger.info(f"Conversation supprimee: {conversation_id}")
+        return True
+    
+    return False
+
+def list_conversations():
+    """Liste toutes les conversations, triées par date de mise à jour"""
+    conversations = load_conversations()
+    
+    # Convertir en liste et trier par updated_at (plus récent en premier)
+    conversations_list = list(conversations.values())
+    conversations_list.sort(key=lambda x: x.get('updated_at', ''), reverse=True)
+    
+    return conversations_list
+
 @app.route('/')
 def index():
     """Page d'accueil - Interface de chat"""
@@ -179,8 +305,23 @@ def query():
         if not query_text:
             return jsonify({'error': 'Aucune question fournie'}), 400
         
+        conversation_id = data.get('conversation_id')
+        
+        # Créer une nouvelle conversation si aucune n'est fournie
+        if not conversation_id:
+            conversation = create_conversation()
+            conversation_id = conversation['id']
+        else:
+            # Vérifier que la conversation existe
+            conversation = get_conversation(conversation_id)
+            if not conversation:
+                return jsonify({'error': 'Conversation non trouvée'}), 404
+        
         if vectorstore is None:
             return jsonify({'error': 'Vector store non trouvé. Lancez d\'abord l\'indexation avec: python ingest.py'}), 400
+        
+        # Ajouter le message utilisateur à la conversation
+        add_message_to_conversation(conversation_id, 'user', query_text)
         
         # Initialiser le LLM avec Ollama (avec timeout et max_tokens)
         ollama_config = config.get('ollama', {})
@@ -194,6 +335,10 @@ def query():
         
         logger.info(f"Requete: {query_text[:100]}...")
         
+        # Récupérer les sources filtrées de la conversation
+        conversation = get_conversation(conversation_id)
+        filtered_sources = conversation.get('filtered_sources') if conversation else None
+        
         # Créer le retriever
         retriever = vectorstore.as_retriever(
             search_kwargs={"k": config['search']['top_k']}
@@ -202,11 +347,28 @@ def query():
         # Récupérer les documents pertinents
         docs = retriever.invoke(query_text)
         
-        # Construire le contexte
-        context = "\n\n".join([doc.page_content for doc in docs])
+        # Filtrer par sources si des sources sont spécifiées
+        if filtered_sources and len(filtered_sources) > 0:
+            docs = [doc for doc in docs if doc.metadata.get('source') in filtered_sources]
+            if not docs:
+                logger.warning(f"Aucun document trouvé dans les sources filtrées: {filtered_sources}")
+                return jsonify({
+                    'error': f'Aucun document trouvé dans les sources sélectionnées: {", ".join(filtered_sources)}',
+                    'conversation_id': conversation_id
+                }), 404
         
-        # Créer le prompt
-        prompt_template = """Utilise les extraits de documents suivants pour répondre à la question. 
+        # Construire le contexte de manière structurée avec les sources
+        context_parts = []
+        for i, doc in enumerate(docs, 1):
+            source = doc.metadata.get('source', 'Document inconnu')
+            content = doc.page_content.strip()
+            context_parts.append(f"[Document {i} - Source: {source}]\n{content}")
+        
+        context = "\n\n---\n\n".join(context_parts)
+        
+        # Charger le template de prompt depuis la configuration
+        prompt_template = config.get('prompt', {}).get('template', 
+            """Utilise les extraits de documents suivants pour répondre à la question. 
 Si tu ne trouves pas la réponse dans les documents, dis-le clairement.
 
 Contexte:
@@ -214,7 +376,7 @@ Contexte:
 
 Question: {question}
 
-Réponse:"""
+Réponse:""")
         
         prompt = prompt_template.format(context=context, question=query_text)
         
@@ -225,12 +387,16 @@ Réponse:"""
         # Extraire les sources
         sources = list(set([doc.metadata.get('source', 'Inconnu') for doc in docs]))
         
+        # Ajouter la réponse de l'assistant à la conversation
+        add_message_to_conversation(conversation_id, 'assistant', answer, sources)
+        
         logger.info(f"Reponse generee - {len(sources)} source(s), {len(docs)} chunk(s)")
         
         return jsonify({
             'answer': answer,
             'sources': sources,
-            'chunks_found': len(docs)
+            'chunks_found': len(docs),
+            'conversation_id': conversation_id
         })
         
     except Exception as e:
@@ -240,39 +406,119 @@ Réponse:"""
 
 @app.route('/api/documents')
 def list_documents():
-    """Liste les documents disponibles dans le dossier data/"""
+    """Liste les documents disponibles dans le dossier data/ et les URLs indexées"""
     try:
-        data_dir = config['paths']['data_dir']
-        if not os.path.exists(data_dir):
-            return jsonify({
-                'success': False,
-                'error': f'Dossier {data_dir} non trouvé',
-                'documents': []
-            }), 404
-        
         documents = []
-        for filename in os.listdir(data_dir):
-            filepath = os.path.join(data_dir, filename)
-            if os.path.isfile(filepath):
-                file_size = os.path.getsize(filepath)
-                documents.append({
-                    'name': filename,
-                    'size': file_size,
-                    'size_formatted': f"{file_size / 1024:.1f} KB" if file_size < 1024*1024 else f"{file_size / (1024*1024):.1f} MB"
-                })
+        urls = []
+        total_size = 0
+        
+        # Récupérer les documents du dossier data/
+        data_dir = config['paths']['data_dir']
+        if os.path.exists(data_dir):
+            for filename in os.listdir(data_dir):
+                filepath = os.path.join(data_dir, filename)
+                if os.path.isfile(filepath):
+                    file_size = os.path.getsize(filepath)
+                    total_size += file_size
+                    documents.append({
+                        'name': filename,
+                        'size': file_size,
+                        'size_formatted': f"{file_size / 1024:.1f} KB" if file_size < 1024*1024 else f"{file_size / (1024*1024):.1f} MB",
+                        'type': 'file'
+                    })
         
         documents.sort(key=lambda x: x['name'])
         
+        # Récupérer les URLs indexées
+        from ingest import load_indexed_urls
+        indexed_urls = load_indexed_urls(config)
+        for url in indexed_urls:
+            urls.append({
+                'name': url,
+                'url': url,
+                'type': 'url'
+            })
+        
+        urls.sort(key=lambda x: x['name'])
+        
+        # Formater la taille totale
+        if total_size < 1024:
+            total_size_formatted = f"{total_size} B"
+        elif total_size < 1024*1024:
+            total_size_formatted = f"{total_size / 1024:.1f} KB"
+        else:
+            total_size_formatted = f"{total_size / (1024*1024):.1f} MB"
+        
+        total_count = len(documents) + len(urls)
+        
+        # Retourner JSON si demandé, sinon HTML
+        if request.headers.get('Accept', '').startswith('application/json'):
+            return jsonify({
+                'success': True,
+                'documents': documents,
+                'urls': urls,
+                'count': total_count
+            })
+        
+        return render_template('documents.html', 
+                             documents=documents,
+                             urls=urls,
+                             count=total_count,
+                             documents_count=len(documents),
+                             urls_count=len(urls),
+                             total_size_formatted=total_size_formatted)
+    except Exception as e:
+        if request.headers.get('Accept', '').startswith('application/json'):
+            return jsonify({
+                'success': False,
+                'error': str(e),
+                'documents': [],
+                'urls': []
+            }), 500
+        return render_template('documents.html', error=str(e), count=0, documents_count=0, urls_count=0, total_size_formatted='0 B')
+
+@app.route('/api/sources')
+def list_sources():
+    """Liste toutes les sources disponibles (documents + URLs indexées)"""
+    try:
+        sources = []
+        
+        # Récupérer les documents du dossier data/
+        data_dir = config['paths']['data_dir']
+        if os.path.exists(data_dir):
+            for filename in os.listdir(data_dir):
+                filepath = os.path.join(data_dir, filename)
+                if os.path.isfile(filepath):
+                    sources.append({
+                        'name': filename,
+                        'type': 'file',
+                        'source': filename
+                    })
+        
+        # Récupérer les URLs indexées
+        from ingest import load_indexed_urls
+        indexed_urls = load_indexed_urls(config)
+        for url in indexed_urls:
+            sources.append({
+                'name': url,
+                'type': 'url',
+                'source': url
+            })
+        
+        # Trier par type puis par nom
+        sources.sort(key=lambda x: (x['type'], x['name']))
+        
         return jsonify({
             'success': True,
-            'documents': documents,
-            'count': len(documents)
+            'sources': sources,
+            'count': len(sources)
         })
     except Exception as e:
+        logger.error(f"Erreur lors de la récupération des sources: {str(e)}", exc_info=True)
         return jsonify({
             'success': False,
             'error': str(e),
-            'documents': []
+            'sources': []
         }), 500
 
 @app.route('/api/index-url', methods=['POST'])
@@ -340,15 +586,170 @@ def status():
         
         status = 'OK' if ollama_status == 'OK' and vectorstore_status == 'OK' else 'Erreur'
         
+        # Retourner JSON si demandé, sinon HTML
+        if request.headers.get('Accept', '').startswith('application/json'):
+            return jsonify({
+                'ollama': ollama_status,
+                'vectorstore': vectorstore_status,
+                'status': status
+            })
+        
+        # Préparer les données pour le template HTML
+        from datetime import datetime
+        timestamp = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+        embedding_model = config['models']['embedding_model']
+        generation_model = config['models']['generation_model']
+        ollama_base_url = config.get('ollama', {}).get('base_url', 'http://localhost:11434')
+        
+        return render_template('status.html',
+                             status=status,
+                             ollama=ollama_status,
+                             vectorstore=vectorstore_status,
+                             timestamp=timestamp,
+                             embedding_model=embedding_model,
+                             generation_model=generation_model,
+                             ollama_base_url=ollama_base_url)
+    except Exception as e:
+        if request.headers.get('Accept', '').startswith('application/json'):
+            return jsonify({
+                'error': str(e),
+                'status': 'Erreur'
+            }), 500
+        
+        from datetime import datetime
+        return render_template('status.html',
+                             status='Erreur',
+                             ollama='Erreur',
+                             vectorstore='Erreur',
+                             timestamp=datetime.now().strftime('%d/%m/%Y %H:%M:%S'),
+                             embedding_model='N/A',
+                             generation_model='N/A',
+                             ollama_base_url='N/A',
+                             error=str(e))
+
+# ==================== ENDPOINTS CONVERSATIONS ====================
+
+@app.route('/api/conversations', methods=['GET'])
+def get_conversations():
+    """Liste toutes les conversations"""
+    try:
+        conversations = list_conversations()
         return jsonify({
-            'ollama': ollama_status,
-            'vectorstore': vectorstore_status,
-            'status': status
+            'success': True,
+            'conversations': conversations,
+            'count': len(conversations)
         })
     except Exception as e:
+        logger.error(f"Erreur lors de la récupération des conversations: {str(e)}", exc_info=True)
         return jsonify({
+            'success': False,
             'error': str(e),
-            'status': 'Erreur'
+            'conversations': []
+        }), 500
+
+@app.route('/api/conversations', methods=['POST'])
+def create_new_conversation():
+    """Crée une nouvelle conversation"""
+    try:
+        data = request.get_json() or {}
+        title = data.get('title')
+        filtered_sources = data.get('filtered_sources')  # Liste des sources à filtrer (None = toutes)
+        
+        # Normaliser filtered_sources : si liste vide, considérer comme None (toutes les sources)
+        if filtered_sources is not None and len(filtered_sources) == 0:
+            filtered_sources = None
+        
+        conversation = create_conversation(title=title, filtered_sources=filtered_sources)
+        
+        return jsonify({
+            'success': True,
+            'conversation': conversation
+        })
+    except Exception as e:
+        logger.error(f"Erreur lors de la création de la conversation: {str(e)}", exc_info=True)
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@app.route('/api/conversations/<conversation_id>', methods=['GET'])
+def get_conversation_by_id(conversation_id):
+    """Récupère une conversation par son ID"""
+    try:
+        conversation = get_conversation(conversation_id)
+        
+        if not conversation:
+            return jsonify({
+                'success': False,
+                'error': 'Conversation non trouvée'
+            }), 404
+        
+        return jsonify({
+            'success': True,
+            'conversation': conversation
+        })
+    except Exception as e:
+        logger.error(f"Erreur lors de la récupération de la conversation: {str(e)}", exc_info=True)
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@app.route('/api/conversations/<conversation_id>', methods=['DELETE'])
+def delete_conversation_by_id(conversation_id):
+    """Supprime une conversation"""
+    try:
+        success = delete_conversation(conversation_id)
+        
+        if not success:
+            return jsonify({
+                'success': False,
+                'error': 'Conversation non trouvée'
+            }), 404
+        
+        return jsonify({
+            'success': True,
+            'message': 'Conversation supprimée'
+        })
+    except Exception as e:
+        logger.error(f"Erreur lors de la suppression de la conversation: {str(e)}", exc_info=True)
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@app.route('/api/conversations/<conversation_id>/title', methods=['PUT'])
+def update_conversation_title(conversation_id):
+    """Met à jour le titre d'une conversation"""
+    try:
+        data = request.get_json()
+        if not data or 'title' not in data:
+            return jsonify({
+                'success': False,
+                'error': 'Titre requis'
+            }), 400
+        
+        conversations = load_conversations()
+        
+        if conversation_id not in conversations:
+            return jsonify({
+                'success': False,
+                'error': 'Conversation non trouvée'
+            }), 404
+        
+        conversations[conversation_id]['title'] = data['title']
+        conversations[conversation_id]['updated_at'] = datetime.now().isoformat()
+        save_conversations(conversations)
+        
+        return jsonify({
+            'success': True,
+            'conversation': conversations[conversation_id]
+        })
+    except Exception as e:
+        logger.error(f"Erreur lors de la mise à jour du titre: {str(e)}", exc_info=True)
+        return jsonify({
+            'success': False,
+            'error': str(e)
         }), 500
 
 if __name__ == '__main__':

@@ -8,5 +8,50 @@
     "url": "https://q-syshelp.qsc.com/Content/Control_Scripting/Using_Lua_in_Q-Sys/HttpClient.htm",
     "indexed_at": "2025-11-12T08:30:58.666517",
     "last_indexed": "2025-11-12T08:30:58.666517"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage_API",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage_layers",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage:Table",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage:Parsers",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage_media_layers",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage:Popup",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://support.spinetix.com/wiki/JSignage:JQuery_port_to_the_uDom",
+    "indexed_at": "2025-11-12T13:45:01.897304",
+    "last_indexed": "2025-11-12T13:45:01.897304"
+  },
+  {
+    "url": "https://stmillenniumappprod.blob.core.windows.net/signage-events/signage-events.json?sp=r&st=2025-05-14T14:06:42Z&se=2055-05-14T22:06:42Z&sip=194.209.129.128-194.209.129.135&spr=https&sv=2024-11-04&sr=c&sig=EhFh0RLQRiyPTtd033rH0WdfV%2BtpyLMRNLa6M3oEx0s%3D",
+    "indexed_at": "2025-11-12T13:58:09.524239",
+    "last_indexed": "2025-11-12T13:58:09.524239"
   }
 ]

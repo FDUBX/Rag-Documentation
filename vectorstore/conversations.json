@@ -1,0 +1,26 @@
+{
+  "bf2ba64c-87f7-4dde-97ed-7a93edf75ac2": {
+    "id": "bf2ba64c-87f7-4dde-97ed-7a93edf75ac2",
+    "title": "parles moi des gpio live premier",
+    "created_at": "2025-11-13T06:03:49.252082",
+    "updated_at": "2025-11-13T06:04:16.444544",
+    "messages": [
+      {
+        "role": "user",
+        "content": "parles moi des gpio live premier",
+        "timestamp": "2025-11-13T06:04:02.305554",
+        "sources": []
+      },
+      {
+        "role": "assistant",
+        "content": "Bonjour ! Selon les documents fournis, le LivePremier unit est équipé de 2x GPIO (ou Tally) et 8x GPO. Les GPIO sont optiquement isolés MOSFET qui fonctionnent comme relais mécaniques.\n\nVoici quelques détails supplémentaires sur les GPIO :\n\n* Chaque GPI peut couler une courant entre 10mA/3V et 45mA/48V.\n* Les GPI 1 et 2 partagent un même pin commun.\n* Les GPO 1, 2, 3 et 4 partagent également un même pin commun.\n* Les GPO 5, 6, 7 et 8 partagent un autre pin commun.\n\nIl est important de noter que les GPIO sont conçus pour contrôler le dispositif de manière externe et pour obtenir un feedback du dispositif. Cependant, il est également possible de mettre en œuvre des timers dans des Multiviewers sans assigner les GPIO comme image slots.",
+        "timestamp": "2025-11-13T06:04:16.444544",
+        "sources": [
+          "RS4-V5.pdf",
+          "Populations_Reseau.txt"
+        ]
+      }
+    ],
+    "filtered_sources": null
+  }
+}

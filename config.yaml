@@ -5,6 +5,7 @@ paths:
   data_dir: "./data"              # Dossier contenant les documents à indexer
   vectorstore_dir: "./vectorstore" # Dossier pour le vector store
   urls_file: "./vectorstore/indexed_urls.json"  # Fichier de sauvegarde des URLs indexées
+  conversations_file: "./vectorstore/conversations.json"  # Fichier de sauvegarde des conversations
 
 # Paramètres de découpage des documents
 chunking:
@@ -45,4 +46,17 @@ logging:
 # Configuration pour le chargement de pages web
 web_loader:
   user_agent: "RAG-Documentation/1.0 (https://github.com/your-repo/rag-documentation)"  # User-Agent pour les requêtes HTTP
+
+# Template de prompt pour la génération de réponses
+prompt:
+  template: |
+    Utilise les extraits de documents suivants pour répondre à la question. 
+    Si tu ne trouves pas la réponse dans les documents, dis-le clairement.
+
+    Contexte:
+    {context}
+
+    Question: {question}
+
+    Réponse:
 
